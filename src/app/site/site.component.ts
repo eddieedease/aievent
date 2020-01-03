@@ -74,7 +74,7 @@ export class SiteComponent implements OnInit {
        });
       }
 
-      if($('.wow').length){
+      if ($('.wow').length){
         const wow = new WOW(
           {
           boxClass:     'wow',      // animated element css class (default is wow)

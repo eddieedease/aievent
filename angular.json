@@ -39,7 +39,8 @@
               "src/assets/js/owl.js",
               "src/assets/js/jquery.countdown.js",
               "src/assets/js/wow.js",
-              "src/assets/js/script.js" 
+              "src/assets/js/script.js",
+              "node_modules/addevent/atc.min.js"
             ]
           },
           "configurations": {
