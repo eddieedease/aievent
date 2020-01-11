@@ -1,0 +1,73 @@
+<!-- Register Section -->
+<div class="container-fluid"  style="height: 150px; background-color: #101130 !important;">
+</div>
+
+<section class="register-section">
+
+   <div class="auto-container">
+      
+       <div class="anim-icons full-width">
+           <span class="icon icon-circle-3 wow zoomIn"></span>
+       </div>
+       <div class="outer-box">
+           <div class="row no-gutters">
+               <div class="title-column col-lg-4 col-md-6 col-sm-12">
+                   <div class="inner">
+                       <div class="sec-title light">
+                           <div class="icon-box"><span class="icon flaticon-rocket-ship"></span></div>
+                           <h2>Inschrijven</h2>
+                           <div class="text">Schrijf jezelf hier in!</div>
+                       </div>
+                   </div>
+               </div>
+               <!--Register Form-->
+               <div class="register-form col-lg-8 col-md-6 col-sm-12">
+                  <div style='padding:20px'>
+                     <div *ngIf="formIsSend" class="alert alert-primary" role="alert">
+                        Je bent ingeschreven! Bedankt en tot 20 maart.
+                      </div>
+                  </div>
+                   <div class="form-inner">
+                        <h2>Inschrijfformulier</h2>
+                       <form method="post" action="contact.html">
+                           <div class="form-group">
+                               <span class="icon fa fa-user"></span>
+                               <input type="text" name="username" placeholder="Naam" required="">
+                           </div>
+
+                           <div class="form-group">
+                              <span class="icon fa fa-user"></span>
+                              <input type="text" name="functie" placeholder="Functie" required="">
+                          </div>
+
+                           <div class="form-group">
+                               <span class="icon fa fa-envelope"></span>
+                               <input type="email" name="email" value="" placeholder="Email" required>
+                           </div>
+
+
+                           <div class="form-group">
+                               <span class="icon fa fa-edit"></span>
+                               <textarea name="message" placeholder="Bericht"></textarea>
+                           </div>
+
+                           <div class="form-group text-right">
+                               <button (click)="sendFormNow()" type="submit" class="theme-btn btn-style-four"><span class="btn-title">Verstuur</span></button>
+                           </div>
+                       </form><div  title="Zet in je agenda!" class="addeventatc">
+                        Klik om in je agenda te zetten!
+                        <span class="start">03/20/2020 13:00</span>
+                        <span class="end">03/20/2020 17:00</span>
+                        <span class="timezone">Europa/Netherlands</span>
+                        <span class="title">Symposium: AI in de Topzorg</span>
+                        <span class="description">Waarom, wanneer en hoe kunnen we met AI starten? </span>
+                        <span class="location">ETZ Elisabeth - Aula, vergadercentrum route 73</span>
+                    </div>
+                   </div>
+                   
+               </div>
+           </div>
+       </div>
+   </div>
+</section>
+<!--End Register Section -->

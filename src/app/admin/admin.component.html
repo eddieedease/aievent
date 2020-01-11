@@ -1,0 +1,184 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }">
+</ngx-loading>
+
+<ng-template #areusure>
+  <!-- (click)="openSureModal(areusure,'deletecourse',row.id) -->
+  <div class="modal-body text-center">
+    <p>Je staat op het punt om dit item te verwijderen</p>
+    <p>Weet je het zeker?</p>
+    <button type="button" class="btn btn-default" (click)="sureModal('no')">Nee</button>&nbsp;&nbsp;
+    <button type="button" class="btn btn-primary" (click)="sureModal('yes')">Ja</button>
+  </div>
+</ng-template>
+
+<ng-template #adminmodal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Inloggen Admin</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- registration form-->
+    <div class="col-sm text-center">
+      <svg *ngIf="showLoginSpinner" class="spinner text-center" width="65px" height="65px" viewBox="0 0 66 66"
+        xmlns="http://www.w3.org/2000/svg">
+        <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+      </svg>
+    </div>
+    <form class="">
+      <!-- <div class="dropdown">
+     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Organisatie
+     </button> {{dropdownOrga}}
+     <br><br>
+     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <button class="dropdown-item" type="button" (click)="dropdownOrga = 'EDease'" >EDease</button>
+      <button class="dropdown-item" type="button" (click)="dropdownOrga = 'DTS'">DTS</button>
+      <button class="dropdown-item" type="button" (click)="dropdownOrga = 'Zandbak'">Zandbak</button>
+     </div>
+    </div> -->
+      <fieldset class="form-group has-danger">
+        <label for="mail" class="form-control-label">Email adres:</label>
+        <input [(ngModel)]="admId" [ngModelOptions]="{standalone: true}" type="text"
+          class="form-control form-control-danger">
+      </fieldset>
+      <fieldset class="form-group has-danger">
+        <label for="password" class="form-control-label">Wachtwoord:</label>
+        <input [(ngModel)]="admPwd" [ngModelOptions]="{standalone: true}" type="password"
+          class="form-control form-control-danger" id="password">
+      </fieldset>
+
+
+
+
+      <hr class="m-y-2" />
+
+      <!-- <div class="form-check">
+     <label class="form-check-label">
+      <input type="checkbox" [(ngModel)]="keepLoggedIn" [ngModelOptions]="{standalone: true}" class="form-check-input"> Blijf ingelogd op dit apparaat
+     </label>
+    </div> -->
+      <hr class="m-b-2" />
+      <button (click)="adminLoginAttempt()" type="submit" class="btn btn-primary btn-lg">Login</button>
+
+    </form>
+    <div class="row">
+      <div class="col-sm">
+
+      </div>
+
+      <div class="col-sm">
+
+      </div>
+    </div>
+    <!-- /registration form-->
+  </div>
+</ng-template>
+
+
+
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" style="height:100px">
+   <a routerLink="/" class="navbar-brand col-sm-3 col-md-2 mr-0">Admin</a>
+   <ul class="navbar-nav px-3">
+     <li class="nav-item text-nowrap">
+       <a class="nav-link" style="cursor: pointer" *ngIf="!adminisLoggedIn" (click)='openModal(adminmodal)'>Log In</a>
+       <a class="nav-link" style="cursor: pointer" *ngIf="adminisLoggedIn" (click)='LogOut()'>Log Uit</a>
+     </li>
+   </ul>
+ </nav>
+ 
+ <div *ngIf="adminisLoggedIn" class="container-fluid"><br><br><br><br>
+   <div class="row">
+     <nav class="col-md-2 d-none d-md-block bg-light sidebar"><br><br>
+       <div class="sidebar-sticky" style="padding:20px">
+         <p>v1.3 <br>
+           <a href="https://edease.nl" target="_blank">EaseCMS</a><br>
+           door
+           <a href="https://edease.nl" target="_blank">EDease</a><br>
+ 
+ 
+         </p>
+       </div>
+     </nav>
+ 
+     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+ 
+ 
+       <!-- Research -->
+ 
+       <div
+         class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+         <h1>Admin</h1>
+       </div>
+ 
+       <tabset [justified]="true">
+           
+         <tab  heading="Gebruikers" (select)="getSome('users')">
+           <br>
+           <h2 >Inschrijvingen</h2>
+           <div class="btn-group float-right" role="group" aria-label="Basic example">
+             <button type="button" class="btn btn-primary " style="border-radius: 10px"
+               (click)="openLargeModal(researchtemplate, 'newresearch', 0)"><i class="fa fa-plus" aria-hidden="true"></i>
+               Onderzoek toevoegen</button>
+           </div><br><br>
+           <ngx-datatable class="material" [rows]="researchRows" [columns]="columns" [columnMode]="'force'"
+             [messages]="tableMessages" [headerHeight]="40" [footerHeight]="40" [limit]="40" [rowHeight]="'auto'">
+             <ngx-datatable-column name="Naam onderzoek" prop="userid" [sortable]="true">
+ 
+               <ng-template let-column="column" let-sort="sortFn">
+                 <span style="cursor:pointer">
+                   {{column.name}}
+                 </span>
+               </ng-template>
+ 
+               <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                 <div [innerHTML]="row['uname']"></div>
+               </ng-template>
+             </ngx-datatable-column>
+ 
+             <!-- <ngx-datatable-column name="Actief" prop="userid" [sortable]="true">
+               <ng-template let-column="column" let-sort="sortFn">
+                 <span style="cursor:pointer">
+                   {{column.name}}
+                 </span>
+               </ng-template>
+               <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                 X/X
+               </ng-template>
+             </ngx-datatable-column> -->
+ 
+             <ngx-datatable-column name="Acties" [sortable]="true">
+ 
+               <ng-template let-column="column" let-sort="sortFn">
+                 <span style="cursor:pointer">
+                   {{column.name}}
+                 </span>
+               </ng-template>
+ 
+               <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                 <div class="btn-group">
+                   <button type="button" (click)="openLargeModal(researchtemplate, 'editresearch', row['id'])"
+                     class="btn btn-warning" data-toggle="modal" data-target=".modal-edit">
+                     <i class="fa fa-edit"></i>
+                   </button>
+                   <button type="button" (click)="openSureModal(areusure, 'research', row['id'])" class="btn btn-danger"
+                     data-toggle="modal" data-target=".modal-edit">
+                     <i class="fa fa-trash"></i>
+                   </button></div>
+               </ng-template>
+             </ngx-datatable-column>
+ 
+           </ngx-datatable>
+ 
+         </tab>
+         
+       </tabset>
+ 
+ 
+ 
+ 
+ 
+     </main>
+   </div><br><br><br><br><br>
+ </div>

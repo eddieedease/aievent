@@ -3,26 +3,47 @@ import { NgModule } from '@angular/core';
 
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  HttpModule,
+  JsonpModule
+} from '@angular/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SiteComponent } from './site/site.component';
 import { ContactComponent } from './contact/contact.component';
 import { ProgrammaComponent } from './programma/programma.component';
 import { DownloadpageComponent } from './downloadpage/downloadpage.component';
+import { InschrijvenComponent } from './inschrijven/inschrijven.component';
+import { AdminComponent } from './admin/admin.component';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
+
+import {
+  SerCredService
+} from './ser-cred.service';
+
+// DATATABLE COMPONENT
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { NgxLoadingModule  } from 'ngx-loading';
 
 const appRoutes: Routes = [
   // { path: 'landing', component: LandingComponent },
   { path: 'site', component: SiteComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'programma', component: ProgrammaComponent },
+  { path: 'inschrijven', component: InschrijvenComponent },
   { path: 'download', component: DownloadpageComponent },
+  { path: 'admin', component: AdminComponent },
   { path: '',
     redirectTo: 'site',
     pathMatch: 'full'
   },
-  // { path: '**', component: LandingComponent }
+  { path: '**', component: SiteComponent }
 ];
 
 @NgModule({
@@ -31,17 +52,26 @@ const appRoutes: Routes = [
     SiteComponent,
     ContactComponent,
     ProgrammaComponent,
-    DownloadpageComponent
+    DownloadpageComponent,
+    InschrijvenComponent,
+    AdminComponent
   ],
   imports: [
     RouterModule.forRoot(
       appRoutes,
       { useHash: false } // <-- debugging purposes only true
     ),
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    HttpModule,
+    HttpClientModule,
+    JsonpModule,
+    ModalModule.forRoot(),
+    TabsModule.forRoot(),
+    NgxDatatableModule,
+    NgxLoadingModule
   ],
-  providers: [],
+  providers: [SerCredService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

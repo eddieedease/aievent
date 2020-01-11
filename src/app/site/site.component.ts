@@ -5,6 +5,8 @@ import {
 
 import {WOW} from '../../assets/js/wow.js';
 
+declare const addeventatc: any;
+
 @Component({
   selector: 'app-site',
   templateUrl: './site.component.html',
@@ -88,6 +90,8 @@ export class SiteComponent implements OnInit {
       }
 
     });
+    addeventatc.refresh();
+
   }
 
 }
