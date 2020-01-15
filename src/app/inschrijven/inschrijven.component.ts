@@ -18,14 +18,14 @@ export class InschrijvenComponent implements OnInit {
 
   ngOnInit() {
     addeventatc.refresh();
-
+    window.scrollTo(0, 0);
   }
 
 
   sendFormNow() {
+    
     this.formIsSend = true;
     addeventatc.refresh();
-
   }
 
 }

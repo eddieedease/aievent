@@ -12,6 +12,7 @@ export class ProgrammaComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     $(document).ready(() => {
       if ($('.wow').length){
         const wow = new WOW(

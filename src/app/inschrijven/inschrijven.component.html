@@ -16,17 +16,21 @@
                        <div class="sec-title light">
                            <div class="icon-box"><span class="icon flaticon-rocket-ship"></span></div>
                            <h2>Inschrijven</h2>
-                           <div class="text">Schrijf jezelf hier in!</div>
+                           <div class="text">Schrijf jezelf hier in!</div><br><br>
+                           <span class="icon fa fa-map-marker-alt" style="color: #ec167f"></span>
+                           <ul class="info-list" >
+                            <li style="color: white !important">13.00 - 17.00 uur</li>
+                            <li style="color: #eda51f !important">ETZ Elisabeth</li>
+                            <li style="color: #eda51f !important">Aula, vergadercentrum route 73</li>
+                            <li style="color: #eda51f !important">Hilvarenbeekseweg 60</li>
+                            <li style="color: #eda51f !important">5022 GC Tilburg</li>
+                        </ul>
                        </div>
                    </div>
                </div>
                <!--Register Form-->
                <div class="register-form col-lg-8 col-md-6 col-sm-12">
-                  <div style='padding:20px'>
-                     <div *ngIf="formIsSend" class="alert alert-primary" role="alert">
-                        Je bent ingeschreven! Bedankt en tot 20 maart.
-                      </div>
-                  </div>
+                  
                    <div class="form-inner">
                         <h2>Inschrijfformulier</h2>
                        <form method="post" action="contact.html">
@@ -50,11 +54,15 @@
                                <span class="icon fa fa-edit"></span>
                                <textarea name="message" placeholder="Bericht"></textarea>
                            </div>
-
+                           <div style='padding:20px'>
+                            <div *ngIf="formIsSend" class="alert alert-primary" role="alert">
+                               Je bent ingeschreven! Bedankt en tot 20 maart.
+                             </div>
+                         </div>
                            <div class="form-group text-right">
                                <button (click)="sendFormNow()" type="submit" class="theme-btn btn-style-four"><span class="btn-title">Verstuur</span></button>
                            </div>
-                       </form><div  title="Zet in je agenda!" class="addeventatc">
+                       </form><div [hidden]="formIsSend" title="Zet in je agenda!" class="addeventatc">
                         Klik om in je agenda te zetten!
                         <span class="start">03/20/2020 13:00</span>
                         <span class="end">03/20/2020 17:00</span>

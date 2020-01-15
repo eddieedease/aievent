@@ -17,7 +17,7 @@ export class SiteComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-
+    window.scrollTo(0, 0);
     // owl carousel
     $(document).ready(() => {
       if ($('.banner-carousel').length) {
