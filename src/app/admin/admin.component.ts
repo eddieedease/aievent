@@ -32,7 +32,10 @@ export class AdminComponent implements OnInit {
   admId;
   admPwd;
 
+  loading = false;
+
   groupListUsers = [];
+  columns;
   tempgroupListUsers = [];
 
   // modalRef
@@ -105,6 +108,24 @@ export class AdminComponent implements OnInit {
   openModal(template: TemplateRef < any > ) {
     console.log(template);
     this.modalRef = this.modalService.show(template);
+  }
+
+
+  openLargeModal(template: TemplateRef < any > , _whichwhat, _id) {
+
+  }
+
+  sureModal(_case) {
+
+  }
+
+  LogOut(){
+
+  }
+
+
+  openSureModal(template: TemplateRef < any > , _id){
+
   }
 
 }
