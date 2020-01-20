@@ -85,7 +85,7 @@
  
  <div *ngIf="adminisLoggedIn" class="container-fluid"><br><br><br><br>
    <div class="row">
-     <nav class="col-md-2 d-none d-md-block bg-light sidebar"><br><br>
+     <!-- <nav class="col-md-2 d-none d-md-block bg-light sidebar"><br><br>
        <div class="sidebar-sticky" style="padding:20px">
          <p>v1.3 <br>
            <a href="https://edease.nl" target="_blank">EaseCMS</a><br>
@@ -95,9 +95,9 @@
  
          </p>
        </div>
-     </nav>
+     </nav> -->
  
-     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+     <main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
  
  
        <!-- Research -->
@@ -117,9 +117,36 @@
                (click)="openLargeModal(adminmodal, 'newresearch', 0)"><i class="fa fa-plus" aria-hidden="true"></i>
                Bezoeker toevoegen</button>
            </div><br><br>
+
+           <div class="col-sm-10" >
+            Zoeken:<br>
+           
+            <input type="text" (keyup)="updateFilter('naam',$event)" placeholder="Naam">&nbsp;&nbsp;
+       
+            <input type="text" (keyup)="updateFilter('email',$event)" placeholder="email">
+            
+          </div>
+
            <ngx-datatable class="material" [rows]="groupListUsers" [columns]="columns" [columnMode]="'force'"
              [messages]="tableMessages" [headerHeight]="40" [footerHeight]="40" [limit]="40" [rowHeight]="'auto'">
-             <ngx-datatable-column name="Naam onderzoek" prop="userid" [sortable]="true">
+
+             <ngx-datatable-column name="Checklist" prop="naam" [sortable]="true">
+ 
+              <ng-template let-column="column" let-sort="sortFn">
+                <span style="cursor:pointer">
+                  {{column.name}}
+                </span>
+              </ng-template>
+
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <div class="custom-control form-control-lg custom-checkbox">
+                  <input  type="checkbox">
+              </div>
+              </ng-template>
+            </ngx-datatable-column>
+
+
+             <ngx-datatable-column name="Naam" prop="naam" [sortable]="true">
  
                <ng-template let-column="column" let-sort="sortFn">
                  <span style="cursor:pointer">
@@ -128,41 +155,79 @@
                </ng-template>
  
                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                 <div [innerHTML]="row['uname']"></div>
+                 <div [innerHTML]="row['naam']"></div>
                </ng-template>
              </ngx-datatable-column>
+
+             <ngx-datatable-column name="Org" prop="userid" [sortable]="true">
  
-             <!-- <ngx-datatable-column name="Actief" prop="userid" [sortable]="true">
-               <ng-template let-column="column" let-sort="sortFn">
-                 <span style="cursor:pointer">
-                   {{column.name}}
-                 </span>
-               </ng-template>
-               <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                 X/X
-               </ng-template>
-             </ngx-datatable-column> -->
+              <ng-template let-column="column" let-sort="sortFn">
+                <span style="cursor:pointer">
+                  {{column.name}}
+                </span>
+              </ng-template>
+
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <div [innerHTML]="row['organisatie']"></div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Functie" prop="functie" [sortable]="true">
  
-             <ngx-datatable-column name="Acties" [sortable]="true">
+              <ng-template let-column="column" let-sort="sortFn">
+                <span style="cursor:pointer">
+                  {{column.name}}
+                </span>
+              </ng-template>
+
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <div [innerHTML]="row['functie']"></div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            
+            <ngx-datatable-column name="Email" prop="email" [sortable]="true">
  
-               <ng-template let-column="column" let-sort="sortFn">
-                 <span style="cursor:pointer">
-                   {{column.name}}
-                 </span>
-               </ng-template>
+              <ng-template let-column="column" let-sort="sortFn">
+                <span style="cursor:pointer">
+                  {{column.name}}
+                </span>
+              </ng-template>
+
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <div [innerHTML]="row['email']"></div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Accreditatie" prop="acc" [sortable]="true">
  
-               <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
-                 <div class="btn-group">
-                   <button type="button" (click)="openLargeModal(adminmodal, 'editresearch', row['id'])"
-                     class="btn btn-warning" data-toggle="modal" data-target=".modal-edit">
-                     <i class="fa fa-edit"></i>
-                   </button>
-                   <button type="button" (click)="openSureModal(areusure, row['id'])" class="btn btn-danger"
-                     data-toggle="modal" data-target=".modal-edit">
-                     <i class="fa fa-trash"></i>
-                   </button></div>
-               </ng-template>
-             </ngx-datatable-column>
+              <ng-template let-column="column" let-sort="sortFn">
+                <span style="cursor:pointer">
+                  {{column.name}}
+                </span>
+              </ng-template>
+
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <div [innerHTML]="row['acc']"></div>
+              </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Datum" prop="datee" [sortable]="true">
+ 
+              <ng-template let-column="column" let-sort="sortFn">
+                <span style="cursor:pointer">
+                  {{column.name}}
+                </span>
+              </ng-template>
+
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <div [innerHTML]="row['datee']"></div>
+              </ng-template>
+            </ngx-datatable-column>
+ 
+            
+ 
+            
  
            </ngx-datatable>
  

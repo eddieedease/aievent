@@ -9,23 +9,40 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 
 // 
 
-// so what calls do we need
+// get users
+$app->get('/getusers', function (Request $request, Response $response) {
+    include 'db.php';
+    $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
 
-// TODO: THERE MUST BE A MAIL SEND TO THE USER WITH THE PWD
+    $sqlusers = 'SELECT * FROM users';
+    $stmtusers = $dbh->prepare($sqlusers);
+    $stmtusers->execute();
+    $resultusers = $stmtusers->fetchAll(PDO::FETCH_ASSOC);
+    //     NOTE colleting everything for converting
+    $result = array();
+    array_push($result, $resultusers);
+    //     convert it all to jSON TODO change result
+    $response = json_encode($result);
+    return $response;
+}
+);
 
-$app->post('/fillinform', function (Request $request, Response $response) {
+
+// TODO: SUBMIT FORM
+$app->post('/submitform', function (Request $request, Response $response) {
     $grouplink = (int)$grouplink;
     $parsedBody = $request->getParsedBody();
-    
+    $naam = $parsedBody[naam];
+    $org = $parsedBody[organisatie];
+    $functie = $parsedBody[functie];
     $email = $parsedBody[email];
-    $name = $parsedBody[name];
-    $lastname = $parsedBody[lastname];
-    $typee = $parsedBody[typee];
+    $acc = $parsedBody[accreditatie];
+
     include 'db.php';
     $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
 
     // registering
-    $sqlregister = "INSERT INTO ausers (name, lastname, email, ww, type) VALUES ('$name','$lastname', '$email', '$newpwd', '$typee')";
+    $sqlregister = "INSERT INTO users (naam, organisatie, functie, email, acc) VALUES ('$naam','$org', '$functie', '$email', '$acc')";
     $stmtregister = $dbh->prepare($sqlregister);
     $stmtregister->execute();
     $resultregister = $stmtregister->fetchAll(PDO::FETCH_ASSOC);

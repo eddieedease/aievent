@@ -1,7 +1,8 @@
 import {
   Component,
   TemplateRef,
-  OnInit
+  OnInit,
+  ViewChild
 } from '@angular/core';
 
 import {
@@ -10,6 +11,10 @@ import {
 import {
   BsModalRef
 } from 'ngx-bootstrap/modal/bs-modal-ref.service';
+
+import {
+  DatatableComponent
+} from '@swimlane/ngx-datatable';
 
 import {
   SerCredService
@@ -27,10 +32,13 @@ import {
 })
 export class AdminComponent implements OnInit {
 
+  @ViewChild(DatatableComponent,  {static: false}) table: DatatableComponent;
+
   adminisLoggedIn = false;
 
   admId;
   admPwd;
+
 
   loading = false;
 
@@ -59,27 +67,20 @@ export class AdminComponent implements OnInit {
   adminLoginAttempt() {
     // TODO: Implement ADMIN LOGIN
     if (this.admId !== '' && this.admPwd !== '') {
-      // Admin login responsibilities
-      // TODO: 4 now simulate
-
-      // this.edSer.API_login(this.admId, this.admPwd).subscribe(value => this.gotLoginResponse(value));
-
-      /* setTimeout(() => {
-        this.adminisLoggedIn = true;
-        // TODO: With the research
-        this.edSer.API_getresearch().subscribe(value => this.gotResearches(value));
-        this.modalRef.hide();
-      }, 1000); */
+ 
     }
 
     // TODO: REMOVE
     this.adminisLoggedIn = true;
+    this.gotLoginResponse();
   }
 
   // TODO: catch on suceesss
-  gotLoginResponse(_event) {
-    
-    this.serCred.debugLog(_event);
+  gotLoginResponse() {
+    this.modalRef.hide();
+    // now get users
+    this.serCred.API_getusers().subscribe(value => this.getusersResonse(value));
+
     /* 
       this.edSer.debugLog(_event);
 
@@ -104,11 +105,48 @@ export class AdminComponent implements OnInit {
   }
 
 
+  getusersResonse(_resp){
+    this.serCred.debugLog(_resp);
+    this.groupListUsers = _resp[0];
+    this.tempgroupListUsers = [..._resp[0]];
+  }
+
+
   // modal
   openModal(template: TemplateRef < any > ) {
     console.log(template);
     this.modalRef = this.modalService.show(template);
   }
+
+
+    // Functionality for the searching filter in the tables
+    updateFilter(_type, event) {
+      this.serCred.debugLog(event);
+      const val = event.target.value.toLowerCase();
+      // lets switch it up ;)
+      // in what table are we searching
+      switch (_type) {
+        case 'naam':
+          // filter our data
+          const temp = this.tempgroupListUsers.filter(function (d) {
+            return d.naam.toLowerCase().indexOf(val) !== -1 || !val;
+          });
+          // update the rows
+          this.groupListUsers = temp;
+          break;
+          case 'email':
+          // filter our data
+          const temp1 = this.tempgroupListUsers.filter(function (d) {
+            return d.email.toLowerCase().indexOf(val) !== -1 || !val;
+          });
+          // update the rows
+          this.groupListUsers = temp1;
+          break;
+          
+      }
+      // Whenever the filter changes, always go back to the first page
+      this.table.offset = 0;
+    }
 
 
   openLargeModal(template: TemplateRef < any > , _whichwhat, _id) {

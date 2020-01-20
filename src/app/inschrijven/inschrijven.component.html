@@ -34,29 +34,30 @@
                    <div class="form-inner">
                         <h2>Inschrijfformulier</h2>
                        <form method="post" action="contact.html">
-                           <div class="form-group">
+                           
+                           <div *ngIf="!formIsSend" class="form-group">
                                <span class="icon fa fa-user"></span>
-                               <input type="text" name="username" placeholder="Naam" required="">
+                               <input [(ngModel)]="inputName" [ngModelOptions]="{standalone: true}" type="text" name="username" placeholder="Naam" required="">
                            </div>
 
-                           <div class="form-group">
+                           <div *ngIf="!formIsSend" class="form-group">
                             <span class="icon fa fa-group"></span>
-                            <input type="text" name="functie" placeholder="Organisatie" required="">
+                            <input [(ngModel)]="inputOrg" [ngModelOptions]="{standalone: true}" type="text" name="functie" placeholder="Organisatie" required="">
                         </div>
 
-                           <div class="form-group">
+                           <div *ngIf="!formIsSend" class="form-group">
                               <span class="icon fa fa-briefcase"></span>
-                              <input type="text" name="functie" placeholder="Functie" required="">
+                              <input [(ngModel)]="inputFunction" [ngModelOptions]="{standalone: true}" type="text" name="functie" placeholder="Functie" required="">
                           </div>
 
-                           <div class="form-group">
+                           <div *ngIf="!formIsSend" class="form-group">
                                <span class="icon fa fa-envelope"></span>
-                               <input type="email" name="email" value="" placeholder="Email" required>
+                               <input [(ngModel)]="inputEmail" [ngModelOptions]="{standalone: true}" type="email" name="email" value="" placeholder="Email" required>
                            </div>
 
 
-                           <div style="padding-left:50px" class="custom-control form-control-lg custom-checkbox">
-                            <input  type="checkbox" class="custom-control-input" id="customCheck1">
+                           <div *ngIf="!formIsSend" style="padding-left:50px" class="custom-control form-control-lg custom-checkbox">
+                            <input [(ngModel)]="inputAcc" [ngModelOptions]="{standalone: true}"  type="checkbox" class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">Verzoek tot accreditatiepunten</label>
                         </div>
                            <div style='padding:20px'>
@@ -64,7 +65,7 @@
                                Je bent ingeschreven! Bedankt en tot 20 maart.
                              </div>
                              <div [hidden]="!formIsSend" title="Zet in je agenda!" class="addeventatc">
-                                Klik om in je agenda te zetten!
+                                Klik hier om in je agenda te zetten!
                                 <span class="start">03/20/2020 13:00</span>
                                 <span class="end">03/20/2020 17:00</span>
                                 <span class="timezone">Europa/Netherlands</span>
@@ -73,7 +74,10 @@
                                 <span class="location">ETZ Elisabeth - Aula, vergadercentrum route 73</span>
                             </div>
                          </div>
-                           <div class="form-group text-right">
+                         <div *ngIf="errorOnSend" class="alert alert-warning" role="alert">
+                            Niet alles ingevuld.
+                          </div>
+                           <div *ngIf="!formIsSend" class="form-group text-right">
                                <button (click)="sendFormNow()" type="submit" class="theme-btn btn-style-four"><span class="btn-title">Verstuur</span></button>
                            </div>
                        </form>
