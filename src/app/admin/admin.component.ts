@@ -66,13 +66,15 @@ export class AdminComponent implements OnInit {
 
   adminLoginAttempt() {
     // TODO: Implement ADMIN LOGIN
-    if (this.admId !== '' && this.admPwd !== '') {
- 
+    if (this.admPwd !== '') {
+      if (this.admPwd === 'goudvis'){
+      // TODO: REMOVE
+      this.adminisLoggedIn = true;
+      this.gotLoginResponse();
+      } else {
+        this.admPwd = '';
+      }
     }
-
-    // TODO: REMOVE
-    this.adminisLoggedIn = true;
-    this.gotLoginResponse();
   }
 
   // TODO: catch on suceesss
