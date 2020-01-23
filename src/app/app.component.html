@@ -29,15 +29,14 @@
                 <nav class="main-menu navbar-expand-md navbar-light">
                     <div class="navbar-header">
                         <!-- Togg le Button -->      
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="icon flaticon-menu-button"></span>
+                        <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span (click)="fireTrigger()" class="icon flaticon-menu-button"></span>
                         </button>
                     </div>
 
                     <div class="collapse navbar-collapse clearfix" id="navbarSupportedContent">
                         <ul class="navigation clearfix">
-                           <!--  <li class="current dropdown"><a routerLink="/">Home</a>  
-                            </li> -->
+                           
                             <li class="dropdown"><a routerLink="/">Home</a>  
                             </li>
                             <li class="dropdown"><a routerLink="/programma">Programma</a>

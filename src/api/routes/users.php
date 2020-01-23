@@ -27,6 +27,24 @@ $app->get('/getusers', function (Request $request, Response $response) {
 }
 );
 
+// get users
+$app->get('/howmany', function (Request $request, Response $response) {
+    include 'db.php';
+    $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
+
+    $sqlusers = 'SELECT * FROM users';
+    $stmtusers = $dbh->prepare($sqlusers);
+    $stmtusers->execute();
+    $resultusers = $stmtusers->fetchAll(PDO::FETCH_ASSOC);
+
+    $data = array('status' => count($resultusers));
+
+    //     convert it all to jSON TODO change result
+    $response = json_encode($data);
+    return $response;
+}
+);
+
 
 // TODO: SUBMIT FORM
 $app->post('/submitform', function (Request $request, Response $response) {

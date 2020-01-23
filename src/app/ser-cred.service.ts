@@ -78,6 +78,25 @@ export class SerCredService {
       .pipe(throttleTime(5000));
   }
 
+  // is max form reaced?
+  API_howmany(): Observable < any > {
+    const url = environment.apilink + 'howmany?rnd=' + new Date().getTime();
+    // tslint:disable-next-line:prefer-const
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+
+    const headersConfig = new HttpHeaders(headers);
+
+    const options = {
+      headers: headersConfig
+    };
+
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(url, options)
+      .pipe(throttleTime(5000));
+  }
+
 
 
   API_submitform(_name, _org, _function, _email, _acc ): Observable < any > {

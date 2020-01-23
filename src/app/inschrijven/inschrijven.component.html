@@ -1,3 +1,7 @@
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '14px' }">
+</ngx-loading>
+
 <!-- Register Section -->
 <div class="container-fluid"  style="height: 150px; background-color: #101130 !important;">
 </div>
@@ -32,9 +36,15 @@
                <!--Register Form-->
                <div class="register-form col-lg-8 col-md-6 col-sm-12">
                   
-                   <div class="form-inner">
+                <div *ngIf="!cansendForm" class="form-inner">
+                    <h2>Inschrijfformulier gesloten</h2>
+                    <p>Helaas, onze maxium capaciteit is bereikt</p>
+
+
+                </div>
+                   <div [hidden]="!cansendForm" class="form-inner">
                         <h2>Inschrijfformulier</h2>
-                       <form method="post" action="contact.html">
+                       <form>
                            
                            <div *ngIf="!formIsSend" class="form-group">
                                <span class="icon fa fa-user"></span>
@@ -59,7 +69,7 @@
 
                            <div *ngIf="!formIsSend" style="padding-left:50px" class="custom-control form-control-lg custom-checkbox">
                             <input [(ngModel)]="inputAcc" [ngModelOptions]="{standalone: true}"  type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">Vink dit aan voor verzoek tot accreditatiepunten</label>
+                            <label class="custom-control-label" for="customCheck1">Verzoek tot accreditatiepunten</label><br>De <a href="https://www.knmg.nl/opleiding-herregistratie-carriere/aban/over-aban.htm" target="blanc">ABAN</a> (KNMG) accreditatie is momenteel aangevraagd.
                         </div>
                            <div style='padding:20px'>
                             <div *ngIf="formIsSend" class="alert alert-primary" role="alert">

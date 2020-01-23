@@ -17,14 +17,16 @@ declare const addeventatc: any;
 export class InschrijvenComponent implements OnInit {
 
   // vars
+  loading = false;
 
+  cansendForm = false;
+  formClosed = false;
 
   inputName = '';
   inputOrg = '';
   inputFunction = '';
   inputEmail = '';
-  inputAcc = '';
-
+  inputAcc = 1;
   formIsSend = false;
 
   errorOnSend = false;
@@ -32,9 +34,25 @@ export class InschrijvenComponent implements OnInit {
   constructor(private serCred: SerCredService) { }
 
   ngOnInit() {
+    this.loading = true;
+    this.serCred.API_howmany().subscribe(value => this.howMany(value));
+
     this.errorOnSend = false;
     addeventatc.refresh();
     window.scrollTo(0, 0);
+  }
+
+  howMany(_resp){
+    const tonumb = +_resp.status;
+    this.serCred.debugLog(_resp);
+    console.log(tonumb);
+    if (tonumb >= 200){
+      this.cansendForm = false;
+      this.formClosed = true;
+    } else {
+      this.cansendForm = true;
+    }
+    this.loading = false;
   }
 
 

@@ -19,7 +19,9 @@ import { DownloadpageComponent } from './downloadpage/downloadpage.component';
 import { InschrijvenComponent } from './inschrijven/inschrijven.component';
 import { AdminComponent } from './admin/admin.component';
 
+// ngx bootstrap
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
@@ -68,6 +70,8 @@ const appRoutes: Routes = [
     JsonpModule,
     ModalModule.forRoot(),
     TabsModule.forRoot(),
+    BrowserAnimationsModule,
+    AccordionModule.forRoot(),
     NgxDatatableModule,
     NgxLoadingModule
   ],
