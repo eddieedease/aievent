@@ -4620,7 +4620,7 @@ img{
 
 .schedule-block.even .inner-box{
 	float: left;
-	text-align: right;
+	text-align: left;
 }
 
 .schedule-block.even .inner-box .inner{
