@@ -1,5 +1,5 @@
 <?php
-$db_name = 'aitopzorg';
+$db_name = 'aievent';
 $hostname = 'localhost';
 $username = 'root';
 $password = 'root';

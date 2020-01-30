@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apilink: 'http://localhost/eventai/src/api/'
+  apilink: 'http://localhost/aievent/src/api/'
 };
 
 /*
