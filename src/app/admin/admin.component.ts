@@ -49,6 +49,8 @@ export class AdminComponent implements OnInit {
   // modalRef
   modalRef: BsModalRef;
 
+  editCompleteCheck = false;
+
 
   tableMessages = {
     emptyMessage: `
@@ -57,6 +59,17 @@ export class AdminComponent implements OnInit {
       </div>
     `
   };
+
+
+  // Current User keeping
+  currentUserName = "";
+  currentUserEmail= "";
+  currentUserOrganisation= "";
+  currentUserFunction = "";
+  currentUserAcc = 0;
+  currentUserId = "";
+
+
 
   constructor(private serCred: SerCredService, private modalService: BsModalService) {}
 
@@ -108,9 +121,9 @@ export class AdminComponent implements OnInit {
 
 
   getusersResonse(_resp){
-    this.serCred.debugLog(_resp);
     this.groupListUsers = _resp[0];
-    this.tempgroupListUsers = [..._resp[0]];
+   this.tempgroupListUsers = [..._resp[0]];
+   this.loading = false;
   }
 
 
@@ -157,6 +170,42 @@ export class AdminComponent implements OnInit {
 
   sureModal(_case) {
 
+  }
+
+  openUserEditModal(template: TemplateRef < any > , _id){
+    this.editCompleteCheck = false;
+    this.currentUserId = _id;
+    this.loading = true;
+     this.modalRef = this.modalService.show(template);
+    // set currentUser data, loop through users
+    this.groupListUsers.forEach(element => {
+        if (element.id === _id){
+          this.currentUserName = element.naam;
+          this.currentUserEmail = element.email;
+          this.currentUserFunction = element.functie;
+          this.currentUserOrganisation = element.organisatie;
+          this.currentUserAcc = +element.acc;
+        }
+    });
+    this.loading = false;
+  }
+
+  editUser(){
+
+    if (this.currentUserName !== '' && this.currentUserEmail !== '' && this.currentUserFunction !== '' && this.currentUserOrganisation !== ''){
+      this.loading = true;
+      this.serCred.API_edituser(this.currentUserId, this.currentUserName, this.currentUserEmail, this.currentUserOrganisation, this.currentUserFunction, this.currentUserAcc).subscribe(value => this.userEditted(value));
+
+    }
+
+  }
+
+  userEditted(_resp){
+    this.serCred.debugLog(_resp);
+    this.editCompleteCheck = true;
+    this.loading = false;
+    // get users again
+    this.serCred.API_getusers().subscribe(value => this.getusersResonse(value));
   }
 
   LogOut(){

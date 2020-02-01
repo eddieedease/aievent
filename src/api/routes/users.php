@@ -72,6 +72,65 @@ $app->post('/submitform', function (Request $request, Response $response) {
 }
 );
 
+$app->post('/edituser/{userid}', function (Request $request, Response $response) {
+    $userid = $request->getAttribute('userid');
+    $userid = (int)$userid;
+
+    $parsedBody = $request->getParsedBody();
+    $name = $parsedBody[naam];
+    $name = addcslashes($name, "'");
+    $organisatie = $parsedBody[organisatie];
+    $organisatie = addcslashes($organisatie, "'");
+    $email = $parsedBody[email];
+    $functie = $parsedBody[functie];
+    $functie = addcslashes($functie, "'");
+    $acc = $parsedBody[acc];
+
+
+
+
+    include 'db.php';
+    $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
+    //     NOTE 5 pieces --> [0] actions [1] arcades [2] archive [3] highscores [4] teams
+    //     a query get all the correct records from the gemeenten table
+    $sqledituser =  "UPDATE users SET naam = '$name', email = '$email', organisatie = '$organisatie', functie = '$functie', acc = '$acc' WHERE id = '$userid'";
+
+    $stmtedituser = $dbh->prepare($sqledituser);
+    $stmtedituser->execute();
+    $resultedituser = $stmtedituser->fetchAll(PDO::FETCH_ASSOC);
+
+    $cb = array('UserEdit' => 'sucess');
+    //     convert it all to jSON TODO change result
+    $response = json_encode($cb);
+    return $response;
+}
+);
+
+
+// get users
+$app->get('/checkuser/{userid}/{check}', function (Request $request, Response $response) {
+    $userid = $request->getAttribute('userid');
+    $userid = (int)$userid;
+
+    $check = $request->getAttribute('check');
+    $check = (int)$check;
+
+    include 'db.php';
+    $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
+
+    $sqlusers =  "UPDATE users SET checklist = '$check' WHERE id = '$userid'";
+    $stmtusers = $dbh->prepare($sqlusers);
+    $stmtusers->execute();
+    $resultusers = $stmtusers->fetchAll(PDO::FETCH_ASSOC);
+
+    $data = array('status' => count($resultusers));
+
+    //     convert it all to jSON TODO change result
+    $response = json_encode($data);
+    return $response;
+}
+);
+
 
 
 

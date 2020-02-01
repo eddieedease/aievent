@@ -68,6 +68,88 @@
 
 
 
+
+
+<ng-template #edituser>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Gebruiker bewerken</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- registration form-->
+    
+    <form class="">
+      <!-- <div class="dropdown">
+     <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Organisatie
+     </button> {{dropdownOrga}}
+     <br><br>
+     <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <button class="dropdown-item" type="button" (click)="dropdownOrga = 'EDease'" >EDease</button>
+      <button class="dropdown-item" type="button" (click)="dropdownOrga = 'DTS'">DTS</button>
+      <button class="dropdown-item" type="button" (click)="dropdownOrga = 'Zandbak'">Zandbak</button>
+     </div>
+    </div> -->
+      <fieldset class="form-group has-danger">
+        <label class="form-control-label">Naam:</label>
+        <input [(ngModel)]="currentUserName" [ngModelOptions]="{standalone: true}" type="text"
+          class="form-control form-control-danger">
+      </fieldset>
+
+      <fieldset class="form-group has-danger">
+        <label  class="form-control-label">Email:</label>
+        <input [(ngModel)]="currentUserEmail" [ngModelOptions]="{standalone: true}" type="text"
+          class="form-control form-control-danger">
+      </fieldset>
+
+      <fieldset class="form-group has-danger">
+        <label class="form-control-label">Organisatie:</label>
+        <input [(ngModel)]="currentUserOrganisation" [ngModelOptions]="{standalone: true}" type="text"
+          class="form-control form-control-danger">
+      </fieldset>
+
+      <fieldset class="form-group has-danger">
+        <label class="form-control-label">Functie:</label>
+        <input [(ngModel)]="currentUserFunction" [ngModelOptions]="{standalone: true}" type="text"
+          class="form-control form-control-danger">
+      </fieldset>
+
+      <fieldset class="form-group has-danger">
+        <label class="form-control-label">Accreditatie:</label>
+        &nbsp;&nbsp;&nbsp; <input [(ngModel)]="currentUserAcc" [ngModelOptions]="{standalone: true}"  type="checkbox">
+      </fieldset>
+
+
+
+
+      <hr class="m-y-2" />
+
+      <!-- <div class="form-check">
+     <label class="form-check-label">
+      <input type="checkbox" [(ngModel)]="keepLoggedIn" [ngModelOptions]="{standalone: true}" class="form-check-input"> Blijf ingelogd op dit apparaat
+     </label>
+    </div> -->
+      <hr class="m-b-2" />
+      <button (click)="editUser()" type="submit" class="btn btn-primary btn-lg">Werk bij</button> <i *ngIf="editCompleteCheck" style="padding-left:20px;color:green" class="fas fa-check"></i>
+
+    </form>
+    <div class="row">
+      <div class="col-sm">
+
+      </div>
+
+      <div class="col-sm">
+
+      </div>
+    </div>
+    <!-- /registration form-->
+  </div>
+</ng-template>
+
+
+
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" style="height:100px">
    <a routerLink="/" class="navbar-brand col-sm-3 col-md-2 mr-0">Admin</a>
    <ul class="navbar-nav px-3">
@@ -120,7 +202,7 @@
        
             <input type="text" (keyup)="updateFilter('email',$event)" placeholder="email">
             
-          </div>
+          </div><br><br>
 
            <ngx-datatable class="material" [rows]="groupListUsers" [columns]="columns" [columnMode]="'force'"
              [messages]="tableMessages" [headerHeight]="40" [footerHeight]="40" [limit]="40" [rowHeight]="'auto'">
@@ -205,6 +287,21 @@
               <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
                 <div [innerHTML]="row['acc']"></div>
               </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Acties">
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+                  <button type="button" class="btn btn-primary"
+                    style="border-top-left-radius: 10px;border-bottom-left-radius: 10px"
+                    (click)="openUserEditModal(edituser ,row.id)">
+                    <i class="fa fa-edit" aria-hidden="true"></i></button>
+                  <button type="button" style="border-top-right-radius: 10px;border-bottom-right-radius: 10px"
+                    class="btn btn-danger" (click)="openSureModal(areusure,row.id)">
+                    <i class="fa fa-trash" aria-hidden="true"></i></button>
+                </div>
+              </ng-template>
+
             </ngx-datatable-column>
 
             <ngx-datatable-column name="Datum" prop="datee" [sortable]="true">
