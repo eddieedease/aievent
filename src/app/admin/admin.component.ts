@@ -69,6 +69,10 @@ export class AdminComponent implements OnInit {
   currentUserAcc = 0;
   currentUserId = "";
 
+  // search vars
+  searchEmail = '';
+  searchName = '';
+
 
 
   constructor(private serCred: SerCredService, private modalService: BsModalService) {}
@@ -121,8 +125,13 @@ export class AdminComponent implements OnInit {
 
 
   getusersResonse(_resp){
-    this.groupListUsers = _resp[0];
-   this.tempgroupListUsers = [..._resp[0]];
+    this.searchEmail = '';
+    this.searchName = '';
+    let userAr = _resp[0];
+    userAr.reverse() ; 
+
+    this.groupListUsers = userAr;
+   this.tempgroupListUsers = [...userAr];
    this.loading = false;
   }
 
@@ -210,12 +219,42 @@ export class AdminComponent implements OnInit {
   }
 
 
+  changeAttendace(_userid, _case){
+    this.loading = true;
+    this.serCred.API_checkuser(_userid, _case).subscribe(value => this.attendaceResp(value));
+
+  }
+
+
+  attendaceResp(_val){
+    this.loading = false;
+    this.serCred.API_getusers().subscribe(value => this.getusersResonse(value));
+
+  }
+
+
   openSureModal(template: TemplateRef < any > , _id){
     this.modalRef = this.modalService.show(template);
+    this.currentUserId = _id;
   }
 
   sureModal(_case) {
     // TODO: Delete user
+    switch (_case) {
+      case 'yes':
+        this.loading = true;
+        this.serCred.API_deleteuser(this.currentUserId).subscribe(value => this.userDeleted(value));
+        break;
+        case 'no':
+          this.modalRef.hide();
+          break;
+    };
+  };
+
+  userDeleted(_resp){
+    this.serCred.API_getusers().subscribe(value => this.getusersResonse(value));
+    this.modalRef.hide();
+    this.loading = false;
   }
 
-}
+};

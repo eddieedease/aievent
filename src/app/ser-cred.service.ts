@@ -191,4 +191,24 @@ export class SerCredService {
   }
 
 
+   // is max form reaced?
+   API_deleteuser(_userid): Observable < any > {
+    const url = environment.apilink + 'deleteuser/' + _userid + '?rnd=' + new Date().getTime();
+    // tslint:disable-next-line:prefer-const
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+
+    const headersConfig = new HttpHeaders(headers);
+
+    const options = {
+      headers: headersConfig
+    };
+
+    // tslint:disable-next-line:max-line-length
+    return this.http.get(url, options)
+      .pipe(throttleTime(5000));
+  }
+
+
 }

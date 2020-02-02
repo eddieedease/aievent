@@ -131,7 +131,28 @@ $app->get('/checkuser/{userid}/{check}', function (Request $request, Response $r
 }
 );
 
+// Delete user
+$app->get('/deleteuser/{userid}', function (Request $request, Response $response) {
+    $userid = $request->getAttribute('userid');
+    $userid = (int)$userid;
 
+    include 'db.php'; 
+    
+    $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
+    //     NOTE 5 pieces --> [0] actions [1] arcades [2] archive [3] highscores [4] teams
+    //     a query get all the correct records from the gemeenten table
+    $sqlgetdeleteusr =  "DELETE FROM users WHERE id = $userid";
+
+    $stmtgetdeleteusr = $dbh->prepare($sqlgetdeleteusr);
+    $stmtgetdeleteusr->execute();
+    $resultgetdeleteusr = $stmtgetdeleteusr->fetchAll(PDO::FETCH_ASSOC);
+
+    $cb = array('deleteusr' => 'success', $resultgetdeleteusr);
+    //     convert it all to jSON TODO change result
+    $response = json_encode($cb);
+    return $response;
+}
+);
 
 
 ?>
