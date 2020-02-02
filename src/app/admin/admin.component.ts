@@ -129,7 +129,6 @@ export class AdminComponent implements OnInit {
 
   // modal
   openModal(template: TemplateRef < any > ) {
-    console.log(template);
     this.modalRef = this.modalService.show(template);
   }
 
@@ -168,9 +167,7 @@ export class AdminComponent implements OnInit {
 
   }
 
-  sureModal(_case) {
-
-  }
+ 
 
   openUserEditModal(template: TemplateRef < any > , _id){
     this.editCompleteCheck = false;
@@ -214,7 +211,11 @@ export class AdminComponent implements OnInit {
 
 
   openSureModal(template: TemplateRef < any > , _id){
+    this.modalRef = this.modalService.show(template);
+  }
 
+  sureModal(_case) {
+    // TODO: Delete user
   }
 
 }

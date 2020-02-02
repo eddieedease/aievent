@@ -19,6 +19,10 @@ import { DownloadpageComponent } from './downloadpage/downloadpage.component';
 import { InschrijvenComponent } from './inschrijven/inschrijven.component';
 import { AdminComponent } from './admin/admin.component';
 
+import {
+  CsvModule
+} from '@ctrl/ngx-csv';
+
 // ngx bootstrap
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { AccordionModule } from 'ngx-bootstrap/accordion';
@@ -68,6 +72,7 @@ const appRoutes: Routes = [
     HttpModule,
     HttpClientModule,
     JsonpModule,
+    CsvModule,
     ModalModule.forRoot(),
     TabsModule.forRoot(),
     BrowserAnimationsModule,

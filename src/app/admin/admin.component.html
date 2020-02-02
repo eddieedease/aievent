@@ -4,7 +4,7 @@
 <ng-template #areusure>
   <!-- (click)="openSureModal(areusure,'deletecourse',row.id) -->
   <div class="modal-body text-center">
-    <p>Je staat op het punt om dit item te verwijderen</p>
+    <p>Je staat op het punt om deze inschrijving te verwijderen</p>
     <p>Weet je het zeker?</p>
     <button type="button" class="btn btn-default" (click)="sureModal('no')">Nee</button>&nbsp;&nbsp;
     <button type="button" class="btn btn-primary" (click)="sureModal('yes')">Ja</button>
@@ -151,7 +151,7 @@
 
 
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" style="height:100px">
-   <a routerLink="/" class="navbar-brand col-sm-3 col-md-2 mr-0">Admin</a>
+   <a routerLink="/" class="navbar-brand col-sm-3 col-md-2 mr-0">Terug naar site</a>
    <ul class="navbar-nav px-3">
      <li class="nav-item text-nowrap">
        <a class="nav-link" style="cursor: pointer" *ngIf="!adminisLoggedIn" (click)='openModal(adminmodal)'>Log In</a>
@@ -159,7 +159,7 @@
  -->     </li>
    </ul>
  </nav>
- <br><br><br><br><br>
+ <div *ngIf="!adminisLoggedIn"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div>
  <div *ngIf="adminisLoggedIn" class="container-fluid"><br><br><br><br>
    <div class="row">
      <!-- <nav class="col-md-2 d-none d-md-block bg-light sidebar"><br><br>
@@ -198,14 +198,18 @@
            <div class="col-sm-10" >
             Zoeken:<br>
            
-            <input type="text" (keyup)="updateFilter('naam',$event)" placeholder="Naam">&nbsp;&nbsp;
+            <input type="text" class="form-control" (keyup)="updateFilter('naam',$event)" placeholder="Naam">&nbsp;&nbsp;
        
-            <input type="text" (keyup)="updateFilter('email',$event)" placeholder="email">
+            <input type="text" class="form-control" (keyup)="updateFilter('email',$event)" placeholder="email">
             
-          </div><br><br>
+          </div><br>
+          <button type="button" class="btn btn-success"><a style="color:white" *ngIf="groupListUsers" csvLink [delimiter]="';'" [data]="groupListUsers">Download CSV voor Exel</a></button>
+
+          
+<br><br>
 
            <ngx-datatable class="material" [rows]="groupListUsers" [columns]="columns" [columnMode]="'force'"
-             [messages]="tableMessages" [headerHeight]="40" [footerHeight]="40" [limit]="40" [rowHeight]="'auto'">
+             [messages]="tableMessages" [headerHeight]="40" [footerHeight]="40" [limit]="300" [rowHeight]="'auto'">
 
              <ngx-datatable-column name="Checklist" prop="naam" [sortable]="true">
  
