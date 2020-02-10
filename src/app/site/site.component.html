@@ -9,11 +9,13 @@
       <!-- registration form-->
       <div class="container">
         <h3 *ngIf="speaker == 1">Mr. Drs. Irith Kist</h3>
-        <h3 *ngIf="speaker == 2">Dr M. (Marleen) de Bruijne</h3>
+        <h3 *ngIf="speaker == 2">Dr. Marleen de Bruijne</h3>
         <h3 *ngIf="speaker == 3">Prof. Dr. Paul van Diest</h3>
         <h3 *ngIf="speaker == 4">Dr. Sharon Ong</h3>
         <h3 *ngIf="speaker == 5">Dr. Erik R. Ranschaert</h3>
         <h3 *ngIf="speaker == 6">Prof. Dr. M.J.A.P. Daemen</h3>
+        
+        <h3 *ngIf="speaker == 7">G.H.A.M. (Gerard) van Berlo MAC</h3>
         <br>
         <div class="row">
             <!-- <a href="https://open.spotify.com/show/4dYNnn0IlD7GWlMt2iORo9" target="blanc">Exploring the Horizon</a> -->
@@ -35,7 +37,12 @@
             <div *ngIf="speaker == 6" class="col-12 col-lg-4"><img src="assets/6.png" style="height:250px;background-size: cover;background-position: center center;"></div>
             <div *ngIf="speaker == 6" class="col-12 col-lg-6"><br><br>Prof. Dr. Mat Paepen (1959) is hoogleraar Pathologie van Atherosclerose aan de Faculteit der Geneeskunde van de Universiteit van Amsterdam (AMC-UvA). Mat Daemen is geïnteresseerd in de moleculaire mechanismen en mogelijkheden voor moleculaire beeldvorming van atherosclerotische plaque. Meer recentelijk heeft Daemen zich in zijn onderzoek gericht op de cardiovasculaire aspecten van het verlies van neurocognitie. <br><br>Daemen was respectievelijk vice-decaan van de medische faculteit, hoofd van de klinische laboratoria en voorzitter van de Academische Adviesraad van het MUMC. Van 2006 tot 2011 was hij wetenschappelijk directeur van het Cardiovasculair Onderzoek Instituut Maastricht (CARIM) en van 2009 tot april 2012 was hij voorzitter van de Nederlandse Vereniging voor Pathologie. Sinds 2011 is hij werkzaam op de afdeling Pathologie van het AMC en coördineert hij het vasculaire onderzoek van het AMC. Verder is hij medevoorzitter van de Commissie Cardiovasculair Onderzoek Nederland (CVON) en hoofdonderzoeker van het project PARISK (Plaque at Risk) van het Centrum voor Translationele Moleculaire Geneeskunde.
                 Hij is lid van het bestuur van het Rembrandt Instituut voor Hart- en vaatziekten, lid van de wetenschappelijke raad van de Nederlandse Hartstichting, bestuurslid van de Niels Stensen Stichting en lid van het bestuur van de Onderzoeksraad van het AMC. Daarnaast is Daemen lid van de redactie van de wetenschappelijke tijdschriften Arterioscler Trombose en Vasculaire Biologie en Journal of Pathology. Daemen is medeoprichter en eigenaar van MKB ACS Biomarkers.</div>
-        </div>
+                <div *ngIf="speaker == 7" class="col-12 col-lg-4"><img src="assets/7.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+                <div *ngIf="speaker == 7" class="col-12 col-lg-6"><br><br>Gerard van Berlo is sinds september 2017 lid Raad van Bestuur van het ETZ (Elisabeth-TweeSteden Ziekenhuis).  Daarvoor was hij drie jaar werkzaam als lid Raad van Bestuur van Máxima Medisch Centrum. Daarnaast heeft Gerard ruime ervaring als toezichthouder in de zorg.<br><br>
+
+                    Al sinds de start van zijn carrière in 1987 is Gerard werkzaam in de gezondheidszorg. Aanvankelijk bij het Regionaal Ziekenfonds Rijn-IJsselland en later als manager Financiën & Control bij Máxima Medisch Centrum, ziekenhuis Rijnstate, Radboudumc en Psychiatrisch Centrum Nijmegen.</div>
+        
+            </div>
       </div><br><br>
       <!-- /registration form-->
     </div>
@@ -200,6 +207,13 @@
            </div>
         </div>
          <div class="row">
+            <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
+                <div class="inner-box" (click)='openModal(speakermodal,7)'>
+                    <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/7.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+                    <h4><a>G.H.A.M. (Gerard) van Berlo MAC</a></h4><p style="font-size: 12px;">Lid van Raad van Bestuur ETZ</p>
+                    <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
+                </div>
+            </div>
            <!-- Feature Block -->
            <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
             <div class="inner-box" (click)='openModal(speakermodal,1)'>
@@ -213,7 +227,7 @@
            <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
                <div class="inner-box" (click)='openModal(speakermodal,2)'>
                    <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/2.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
-                   <h4><a>Dr M. (Marleen) de Bruijne</a></h4><p style="font-size: 12px;">Erasmus MC</p>
+                   <h4><a>Dr. Marleen de Bruijne</a></h4><p style="font-size: 12px;">Erasmus MC</p>
                    <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
                </div>
            </div>

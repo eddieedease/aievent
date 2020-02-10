@@ -208,7 +208,7 @@
           
 <br><br>
 
-           <ngx-datatable class="material" [rows]="groupListUsers" [columns]="columns" [columnMode]="'force'"
+           <ngx-datatable [scrollbarH]="true" class="material" [rows]="groupListUsers" [columns]="columns" [columnMode]="'force'"
              [messages]="tableMessages" [headerHeight]="40" [footerHeight]="40" [limit]="300" [rowHeight]="'auto'">
 
              <ngx-datatable-column name="Checklist" prop="naam" [sortable]="true">
