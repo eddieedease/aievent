@@ -1,66 +1,74 @@
 <ng-template #speakermodal>
-    <div class="modal-header">
-      <h4 class="modal-title pull-left">Spreker</h4>
-      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      <!-- registration form-->
-      <div class="container">
-        <h3 *ngIf="speaker == 1">Mr. Drs. Irith Kist</h3>
-        <h3 *ngIf="speaker == 2">Dr. Marleen de Bruijne</h3>
-        <h3 *ngIf="speaker == 3">Prof. Dr. Paul van Diest</h3>
-        <h3 *ngIf="speaker == 4">Dr. Sharon Ong</h3>
-        <h3 *ngIf="speaker == 5">Dr. Erik R. Ranschaert</h3>
-        <h3 *ngIf="speaker == 6">Prof. Dr. M.J.A.P. Daemen</h3>
-        
-        <h3 *ngIf="speaker == 7">G.H.A.M. (Gerard) van Berlo MAC</h3>
-        <br>
-        <div class="row">
-            <!-- <a href="https://open.spotify.com/show/4dYNnn0IlD7GWlMt2iORo9" target="blanc">Exploring the Horizon</a> -->
-            <div *ngIf="speaker == 1" class="col-12 col-lg-4"><img src="assets/1.png" style="height:250px;background-size: cover;background-position: center center;"></div>
-            <div *ngIf="speaker == 1" class="col-12 col-lg-6"><br><br>Mr. Drs. Irith Kist, Functionaris Gegevensbescherming bij het Nederlands Kanker Instituut - Antoni van Leeuwenhoekziekenhuis in Amsterdam. Zij is tevens als data protection officer verbonden aan het Europees consortium Cancer Core Europe en lid van de werkgroep Genomics & Privacy van de Global Alliance for Genomics & Health (GA4GH). Irith Kist voltooide haar academische studies in Internationaal en Europees Recht, Fiscaal Recht en tot slot Politicologie aan de Universiteit van Amsterdam.<br><br>  Zij heeft grondige ervaring in complexe projecten op het gebied van juridisch-strategisch, educatief en veranderingsmanagement. Haar onderzoek richt zich op de grenzen aan de controle over persoonsgegevens door patiënten. Zij is regelmatig gastspreker bij Nederlandse en internationale congressen en lezingen, en richt zich hierbij op de kansen en mogelijkheden die het Europees rechtelijk privacykader biedt voor innovatie en ontwikkeling.</div>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Spreker</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!-- registration form-->
+    <div class="container">
+      <h3 *ngIf="speaker == 1">Mr. Drs. Irith Kist</h3>
+      <h3 *ngIf="speaker == 2">Dr. Marleen de Bruijne</h3>
+      <h3 *ngIf="speaker == 3">Prof. Dr. Paul van Diest</h3>
+      <h3 *ngIf="speaker == 4">Dr. Sharon Ong</h3>
+      <h3 *ngIf="speaker == 5">Dr. Erik R. Ranschaert</h3>
+      <h3 *ngIf="speaker == 6">Prof. Dr. M.J.A.P. Daemen</h3>
 
-            <div *ngIf="speaker == 2" class="col-12 col-lg-4"><img src="assets/2.png"style="height:250px;background-size: cover;background-position: center center;"></div>
-            <div *ngIf="speaker == 2" class="col-12 col-lg-6"><br><br>Dr. Marleen de Bruijne is hoofddocent medische beeldanalyse aan het Erasmus MC Rotterdam en hoogleraar medische beeldanalyse aan de Universiteit van Kopenhagen. Ze behaalde een MSc-diploma in de natuurkunde (1997) en een doctoraat in de medische beeldvorming (2003), beide aan de Universiteit van Utrecht. Van 2003 tot 2006 was ze assistent-professor en later universitair docent aan de IT-universiteit van Kopenhagen, Denemarken. Dr. De Bruijne is (co-)auteur van ongeveer 200 peer-reviewed full papers in internationale congressen en tijdschriften.<br><br> Haar onderzoek ligt in het machinaal leren voor kwantitatieve beeldanalyse en computerondersteunde diagnostiek in verschillende toepassingsgebieden. Ze ontwikkelt computertechnieken om nieuwe patronen te ontdekken in grote datacollecties van medische beelden van ziekten zoals beroerte en longziekten, met als bedoeling het risico van de patiënt op het ontwikkelen van een ziekte te voorspellen, wat zal leiden tot een betere, meer gepersonaliseerde behandeling en misschien zelfs tot ziektepreventie.</div>
+      <h3 *ngIf="speaker == 7">G.H.A.M. (Gerard) van Berlo MAC</h3>
+      <h3 *ngIf="speaker == 8">Dr. Paul Algra</h3>
 
-            <div *ngIf="speaker == 3" class="col-12 col-lg-4"><img src="assets/3.png" style="height:250px;background-size: cover;background-position: center center;"></div>
-            <div *ngIf="speaker == 3" class="col-12 col-lg-6"><br><br>Prof. Dr. Paul J. van Diest is hoofd pathologie aan het UMC Utrecht. Daarnaast is hij Professor of Oncology aan het Sidney Kimmel Oncology Center in Johns Hopkins, Baltimore (USA) en Bestuurslid van de Nederlandse Vereniging voor Oncologie. Dr. van Diest studeerde Geneeskunde, promoveerde en deed zijn opleiding tot patholoog aan de Vrije Universiteit en in het VUMC te Amsterdam; werkte daar na zijn registratie (1996) als klinisch patholoog, Associate Professor (1999)  en Professor in de Oncologische Pathologie (2001). <br><br>Sinds 2003 is hij Hoofd van de Afdeling Pathologie van het UMC Utrecht. Hij is een toegewijd onderzoeker op het gebied van kanker, met name van de borst. Hij publiceerde meer dan 800 wetenschappelijke artikelen en was promotor van meer dan 70 promovendi.</div>
+      <br>
+      <div class="row">
+        <!-- <a href="https://open.spotify.com/show/4dYNnn0IlD7GWlMt2iORo9" target="blanc">Exploring the Horizon</a> -->
+        <div *ngIf="speaker == 1" class="col-12 col-lg-4"><img src="assets/1.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+        <div *ngIf="speaker == 1" class="col-12 col-lg-6"><br><br>Mr. Drs. Irith Kist, Functionaris Gegevensbescherming bij het Nederlands Kanker Instituut - Antoni van Leeuwenhoekziekenhuis in Amsterdam. Zij is tevens als data protection officer verbonden aan het Europees consortium Cancer Core Europe en lid van de werkgroep Genomics & Privacy van de Global Alliance for Genomics & Health (GA4GH). Irith Kist voltooide haar academische studies in Internationaal en Europees Recht, Fiscaal Recht en tot slot Politicologie aan de Universiteit van Amsterdam.<br><br> Zij heeft grondige ervaring in complexe projecten op het gebied van juridisch-strategisch, educatief en veranderingsmanagement. Haar onderzoek richt zich op de grenzen aan de controle over persoonsgegevens door patiënten. Zij is regelmatig gastspreker bij Nederlandse en internationale congressen en lezingen, en richt zich hierbij op de kansen en mogelijkheden die het Europees rechtelijk privacykader biedt voor innovatie en ontwikkeling.</div>
 
-            <div *ngIf="speaker == 4" class="col-12 col-lg-4"><img src="assets/4.png" style="height:250px;background-size: cover;background-position: center center;"></div>
-            <div *ngIf="speaker == 4" class="col-12 col-lg-6"><br><br>Dr. Sharon Ong is assistent-professor in het departement Cognitieve Wetenschappen en Kunstmatige Intelligentie aan de universiteit van Tilburg (TiU). Haar onderzoek richt zich op kunstmatige intelligentie voor beeld- en videoanalyse.  Haar focus ligt op het segmenteren van biomedische beelden en het volgen van meerdere agenten om automatisch inzichtelijke informatie te extraheren en computermodellen te creëren. Zij was Research Scientist bij de Singapore-MIT Alliance for Research and Technology (SMART) Centre in de interdisciplinaire onderzoeksgroep BioSystems and Micromechanics (BioSyM). <br><br>In 2008 promoveerde zij in Field Robotics aan de Universiteit van Sydney, Australië. In 2003 behaalde ze een Bachelor in Engineering (Mechatronica) aan de Universiteit van Sydney. </div>
+        <div *ngIf="speaker == 2" class="col-12 col-lg-4"><img src="assets/2.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+        <div *ngIf="speaker == 2" class="col-12 col-lg-6"><br><br>Dr. Marleen de Bruijne is hoofddocent medische beeldanalyse aan het Erasmus MC Rotterdam en hoogleraar medische beeldanalyse aan de Universiteit van Kopenhagen. Ze behaalde een MSc-diploma in de natuurkunde (1997) en een doctoraat in de medische beeldvorming (2003), beide aan de Universiteit van Utrecht. Van 2003 tot 2006 was ze assistent-professor en later universitair docent aan de IT-universiteit van Kopenhagen, Denemarken. Dr. De Bruijne is (co-)auteur van ongeveer 200 peer-reviewed full papers in internationale congressen en tijdschriften.<br><br> Haar onderzoek ligt in het machinaal leren voor kwantitatieve beeldanalyse en computerondersteunde diagnostiek in verschillende toepassingsgebieden. Ze ontwikkelt computertechnieken om nieuwe patronen te ontdekken in grote datacollecties van medische beelden van ziekten zoals beroerte en longziekten, met als bedoeling het risico van de patiënt op het ontwikkelen van een ziekte te voorspellen, wat zal leiden tot een betere, meer gepersonaliseerde behandeling en misschien zelfs tot ziektepreventie.</div>
 
-            <div *ngIf="speaker == 5" class="col-12 col-lg-4"><img src="assets/5.png" style="height:250px;background-size: cover;background-position: center center;"></div>
-            <div *ngIf="speaker == 5" class="col-12 col-lg-6"><br><br>Dr. Erik Ranschaert heeft zijn medische opleiding aan de KU Leuven in België afgerond. Hij werkt sinds 2018 als radioloog in het ETZ.  In 2016 behaalde hij zijn doctoraatsdiploma aan de Universiteit Antwerpen met een proefschrift getiteld "De impact van de informatietechnologie op de radiologische dienstverlening". Sinds 2017 is hij Certified Imaging Informatics Professional (CIIP). <br><br>Hij was bestuurslid en voorzitter van de e-Health en Informatics Subcommittee van de <a href="https://www.myesr.org/about/organisation/statutory-committees" target="blanc">European Society of Radiology (ESR)</a> en is momenteel voorzitter van de European Society of Medical Imaging Informatics <a href="http://eusomii.org/" target="blanc">(EuSoMII)</a>.  In 2019 was hij adviseur in kunstmatige intelligentie voor de afdeling radiologie van het Nederlands Kanker Instituut (AVL) te Amsterdam, waar hij momenteel als co-promotor een PhD kandidaat begeleidt in een thesis over integratie van AI in de radiologie. <br><br>Als expert in imaging informatics en kunstmatige intelligentie is hij regelmatig genodigd spreker voor nationale en internationale conferenties, zoals het European Congress of Radiology (ECR), RSNA, JFR, UKRC, Radiologendagen etc. Hij is co-editor en auteur van het eerste boek over kunstmatige intelligentie voor de radiologie: “Artificial Intelligence in Medical Imaging: Opportunities, Applications and Risks”  (Springer, 2019). Hij heeft een <a href="https://medium.com/@erik.ranschaert" target="blanc">blog</a> en een <a href="https://open.spotify.com/show/4dYNnn0IlD7GWlMt2iORo9" target="blanc">podcast</a> over AI, genaamd <a href="https://open.spotify.com/show/4dYNnn0IlD7GWlMt2iORo9" target="blanc">"Exploring the Horizon"</a>.</div>
+        <div *ngIf="speaker == 3" class="col-12 col-lg-4"><img src="assets/3.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+        <div *ngIf="speaker == 3" class="col-12 col-lg-6"><br><br>Prof. Dr. Paul J. van Diest is hoofd pathologie aan het UMC Utrecht. Daarnaast is hij Professor of Oncology aan het Sidney Kimmel Oncology Center in Johns Hopkins, Baltimore (USA) en Bestuurslid van de Nederlandse Vereniging voor Oncologie. Dr. van Diest studeerde Geneeskunde, promoveerde en deed zijn opleiding tot patholoog aan de Vrije Universiteit en in het VUMC te Amsterdam; werkte daar na zijn registratie (1996) als klinisch patholoog, Associate Professor (1999) en Professor in de Oncologische Pathologie (2001). <br><br>Sinds 2003 is hij Hoofd van de Afdeling Pathologie van het UMC Utrecht. Hij is een toegewijd onderzoeker op het gebied van kanker, met name van de borst. Hij publiceerde meer dan 800 wetenschappelijke artikelen en was promotor van meer dan 70 promovendi.</div>
 
-            <div *ngIf="speaker == 6" class="col-12 col-lg-4"><img src="assets/6.png" style="height:250px;background-size: cover;background-position: center center;"></div>
-            <div *ngIf="speaker == 6" class="col-12 col-lg-6"><br><br>Prof. Dr. Mat Paepen (1959) is hoogleraar Pathologie van Atherosclerose aan de Faculteit der Geneeskunde van de Universiteit van Amsterdam (AMC-UvA). Mat Daemen is geïnteresseerd in de moleculaire mechanismen en mogelijkheden voor moleculaire beeldvorming van atherosclerotische plaque. Meer recentelijk heeft Daemen zich in zijn onderzoek gericht op de cardiovasculaire aspecten van het verlies van neurocognitie. <br><br>Daemen was respectievelijk vice-decaan van de medische faculteit, hoofd van de klinische laboratoria en voorzitter van de Academische Adviesraad van het MUMC. Van 2006 tot 2011 was hij wetenschappelijk directeur van het Cardiovasculair Onderzoek Instituut Maastricht (CARIM) en van 2009 tot april 2012 was hij voorzitter van de Nederlandse Vereniging voor Pathologie. Sinds 2011 is hij werkzaam op de afdeling Pathologie van het AMC en coördineert hij het vasculaire onderzoek van het AMC. Verder is hij medevoorzitter van de Commissie Cardiovasculair Onderzoek Nederland (CVON) en hoofdonderzoeker van het project PARISK (Plaque at Risk) van het Centrum voor Translationele Moleculaire Geneeskunde.
-                Hij is lid van het bestuur van het Rembrandt Instituut voor Hart- en vaatziekten, lid van de wetenschappelijke raad van de Nederlandse Hartstichting, bestuurslid van de Niels Stensen Stichting en lid van het bestuur van de Onderzoeksraad van het AMC. Daarnaast is Daemen lid van de redactie van de wetenschappelijke tijdschriften Arterioscler Trombose en Vasculaire Biologie en Journal of Pathology. Daemen is medeoprichter en eigenaar van MKB ACS Biomarkers.</div>
-                <div *ngIf="speaker == 7" class="col-12 col-lg-4"><img src="assets/7.png" style="height:250px;background-size: cover;background-position: center center;"></div>
-                <div *ngIf="speaker == 7" class="col-12 col-lg-6"><br><br>Gerard van Berlo is sinds september 2017 lid Raad van Bestuur van het ETZ (Elisabeth-TweeSteden Ziekenhuis).  Daarvoor was hij drie jaar werkzaam als lid Raad van Bestuur van Máxima Medisch Centrum. Daarnaast heeft Gerard ruime ervaring als toezichthouder in de zorg.<br><br>
+        <div *ngIf="speaker == 4" class="col-12 col-lg-4"><img src="assets/4.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+        <div *ngIf="speaker == 4" class="col-12 col-lg-6"><br><br>Dr. Sharon Ong is assistent-professor in het departement Cognitieve Wetenschappen en Kunstmatige Intelligentie aan de universiteit van Tilburg (TiU). Haar onderzoek richt zich op kunstmatige intelligentie voor beeld- en videoanalyse. Haar focus ligt op het segmenteren van biomedische beelden en het volgen van meerdere agenten om automatisch inzichtelijke informatie te extraheren en computermodellen te creëren. Zij was Research Scientist bij de Singapore-MIT Alliance for Research and Technology (SMART) Centre in de interdisciplinaire onderzoeksgroep BioSystems and Micromechanics (BioSyM). <br><br>In 2008 promoveerde zij in Field Robotics aan de Universiteit van Sydney, Australië. In 2003 behaalde ze een Bachelor in Engineering (Mechatronica) aan de Universiteit van Sydney. </div>
 
-                    Al sinds de start van zijn carrière in 1987 is Gerard werkzaam in de gezondheidszorg. Aanvankelijk bij het Regionaal Ziekenfonds Rijn-IJsselland en later als manager Financiën & Control bij Máxima Medisch Centrum, ziekenhuis Rijnstate, Radboudumc en Psychiatrisch Centrum Nijmegen.</div>
-        
-            </div>
-      </div><br><br>
-      <!-- /registration form-->
-    </div>
-  </ng-template>
- 
- <!-- Banner Section -->
- <section class="banner-section">
-   <div class="banner-carousel owl-carousel owl-theme">
-       <!-- Slide Item -->
-       <div class="slide-item" style="background-image: url(assets/images/main-slider/1.jpg);">
-           <div class="auto-container">
-               <div class="content-box">
-                <p class="title">Symposium:</p><br>
-                <h2>Opmars van Artificiële Intelligentie in de Topzorg</h2>
-                <span class="title">Wanneer en hoe kunnen we met AI starten?<br> Opinie van de experten</span><br>
-                <a href="https://etz.nl" target="_blanc"><img src="assets/images/logowhite.png" alt="" /></a>
-                   <span class="title" style="color:white">20 Maart, 2020</span>
-                   <!-- <div title="Zet in je agenda!" class="addeventatc">
+        <div *ngIf="speaker == 5" class="col-12 col-lg-4"><img src="assets/5.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+        <div *ngIf="speaker == 5" class="col-12 col-lg-6"><br><br>Dr. Erik Ranschaert heeft zijn medische opleiding aan de KU Leuven in België afgerond. Hij werkt sinds 2018 als radioloog in het ETZ. In 2016 behaalde hij zijn doctoraatsdiploma aan de Universiteit Antwerpen met een proefschrift getiteld "De impact van de informatietechnologie op de radiologische dienstverlening". Sinds 2017 is hij Certified Imaging Informatics Professional (CIIP). <br><br>Hij was bestuurslid en voorzitter van de e-Health en Informatics Subcommittee van de <a href="https://www.myesr.org/about/organisation/statutory-committees" target="blanc">European Society of Radiology (ESR)</a> en is momenteel voorzitter van de European Society of Medical Imaging Informatics <a href="http://eusomii.org/" target="blanc">(EuSoMII)</a>. In 2019 was hij adviseur in kunstmatige intelligentie voor de afdeling radiologie van het Nederlands Kanker Instituut (AVL) te Amsterdam, waar hij momenteel als co-promotor een PhD kandidaat begeleidt in een thesis over integratie van AI in de radiologie. <br><br>Als expert in imaging informatics en kunstmatige intelligentie is hij regelmatig genodigd spreker voor nationale en internationale conferenties, zoals het European Congress of Radiology (ECR), RSNA, JFR, UKRC, Radiologendagen etc. Hij is co-editor en auteur van het eerste boek over kunstmatige intelligentie voor de radiologie: “Artificial Intelligence in Medical Imaging: Opportunities, Applications and Risks” (Springer, 2019). Hij heeft een <a href="https://medium.com/@erik.ranschaert" target="blanc">blog</a> en een <a href="https://open.spotify.com/show/4dYNnn0IlD7GWlMt2iORo9" target="blanc">podcast</a> over AI, genaamd <a href="https://open.spotify.com/show/4dYNnn0IlD7GWlMt2iORo9" target="blanc">"Exploring the Horizon"</a>.</div>
+
+        <div *ngIf="speaker == 6" class="col-12 col-lg-4"><img src="assets/6.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+        <div *ngIf="speaker == 6" class="col-12 col-lg-6"><br><br>Prof. Dr. Mat Paepen (1959) is hoogleraar Pathologie van Atherosclerose aan de Faculteit der Geneeskunde van de Universiteit van Amsterdam (AMC-UvA). Mat Daemen is geïnteresseerd in de moleculaire mechanismen en mogelijkheden voor moleculaire beeldvorming van atherosclerotische plaque. Meer recentelijk heeft Daemen zich in zijn onderzoek gericht op de cardiovasculaire aspecten van het verlies van neurocognitie. <br><br>Daemen was respectievelijk vice-decaan van de medische faculteit, hoofd van de klinische laboratoria en voorzitter van de Academische Adviesraad van het MUMC. Van 2006 tot 2011 was hij wetenschappelijk directeur van het Cardiovasculair Onderzoek Instituut Maastricht (CARIM) en van 2009 tot april 2012 was hij voorzitter van de Nederlandse Vereniging voor Pathologie. Sinds 2011 is hij werkzaam op de afdeling Pathologie van het AMC en coördineert hij het vasculaire onderzoek van het AMC. Verder is hij medevoorzitter van de Commissie Cardiovasculair Onderzoek Nederland (CVON) en hoofdonderzoeker van het project PARISK (Plaque at Risk) van het Centrum voor Translationele Moleculaire Geneeskunde.
+          Hij is lid van het bestuur van het Rembrandt Instituut voor Hart- en vaatziekten, lid van de wetenschappelijke raad van de Nederlandse Hartstichting, bestuurslid van de Niels Stensen Stichting en lid van het bestuur van de Onderzoeksraad van het AMC. Daarnaast is Daemen lid van de redactie van de wetenschappelijke tijdschriften Arterioscler Trombose en Vasculaire Biologie en Journal of Pathology. Daemen is medeoprichter en eigenaar van MKB ACS Biomarkers.</div>
+        <div *ngIf="speaker == 7" class="col-12 col-lg-4"><img src="assets/7.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+        <div *ngIf="speaker == 7" class="col-12 col-lg-6"><br><br>Gerard van Berlo is sinds september 2017 lid Raad van Bestuur van het ETZ (Elisabeth-TweeSteden Ziekenhuis). Daarvoor was hij drie jaar werkzaam als lid Raad van Bestuur van Máxima Medisch Centrum. Daarnaast heeft Gerard ruime ervaring als toezichthouder in de zorg.<br><br>
+
+          Al sinds de start van zijn carrière in 1987 is Gerard werkzaam in de gezondheidszorg. Aanvankelijk bij het Regionaal Ziekenfonds Rijn-IJsselland en later als manager Financiën & Control bij Máxima Medisch Centrum, ziekenhuis Rijnstate, Radboudumc en Psychiatrisch Centrum Nijmegen.</div>
+
+        <div *ngIf="speaker == 8" class="col-12 col-lg-4"><img src="assets/8.png" style="height:250px;background-size: cover;background-position: center center;"></div>
+        <div *ngIf="speaker == 8" class="col-12 col-lg-6"><br><br>Paul Algra (1957) volgde zijn artsopleiding aan de VU (nu Amsterdam UMC) en zijn radiologenopleiding aan AZL (nu LUMC).
+          <br><br>
+          Daarna een fellowship neuroradiologie waarna zijn promotie volgde in 1992. Sinds dat jaar tot op heden werkzaam in NWZ Alkmaar. In deze periode hoofd afdeling en opleider geweest. Nu bestuurslid European Society Medical Information and Informatics (EuSoMII) en uit dien hoofde veel bezig met AI. Daarnaast mederedacteur MemoRad, tijdschrift voor Nederlandse radioloog.
+          <br><br>
+          Moderne ontwikkelingen in mijn vakgebied hebben me altijd getrokken. Destijds mijn promotieonderwerp MRI, vervolgens PACS en nu dan AI. AI heeft de laatste jaren zijn intrede gemaakt in de gezondheidszorg en het belang van AI zal voorlopig alleen nog maar gaan toenemen. AI zal de kwaliteit van diagnostiek doen verbeteren en de werklast in het algemeen gaan verminderen. AI begon destijds in de radiologie; alle afbeeldingen waren immers al digitaal. Inmiddels hebben vrijwel alle specialismen met AI te maken; het is een ziekenhuis brede aangelegenheid. Dat boeit me de laatste tijd het meest; hoe krijg je draagvlak in het ziekenhuis om AI breed te introduceren. Dat vraagt een bepaalde rijpheid (maturity; DIAM model) van de organisatie en een AI bewustzijn onder de medisch specialismen. In Alkmaar hebben we daar inmiddels plannen voor waar ik t.z.t. graag over bericht. <br><br></div>
+      </div>
+    </div><br><br>
+    <!-- /registration form-->
+  </div>
+</ng-template>
+
+<!-- Banner Section -->
+<section class="banner-section">
+  <div class="banner-carousel owl-carousel owl-theme">
+    <!-- Slide Item -->
+    <div class="slide-item" style="background-image: url(assets/images/main-slider/1.jpg);">
+      <div class="auto-container">
+        <div class="content-box">
+          <p class="title">Symposium:</p><br>
+          <h2>Opmars van Artificiële Intelligentie in de Topzorg</h2>
+          <span class="title">Wanneer en hoe kunnen we met AI starten?<br> Opinie van de experten</span><br>
+          <a href="https://etz.nl" target="_blanc"><img src="assets/images/logowhite.png" alt="" /></a>
+          <span class="title" style="color:white">20 Maart, 2020</span>
+          <!-- <div title="Zet in je agenda!" class="addeventatc">
                     Klik om in je agenda te zetten!
                     <span class="start">03/20/2020 13:00</span>
                     <span class="end">03/20/2020 17:00</span>
@@ -69,14 +77,14 @@
                     <span class="description">Waarom, wanneer en hoe kunnen we met AI starten? </span>
                     <span class="location">ETZ Elisabeth - Aula, vergadercentrum route 73</span>
                 </div><br><br> -->
-                <div class="btn-box"><a routerLink="/inschrijven" class="theme-btn btn-style-one"><span class="btn-title">Schrijf je in!</span></a></div>
-
-                  
-                   
-                   
+          <div class="btn-box"><a routerLink="/inschrijven" class="theme-btn btn-style-one"><span class="btn-title">Schrijf je in!</span></a></div>
 
 
-                   <!-- <ul class="info-list" >
+
+
+
+
+          <!-- <ul class="info-list" >
                        
                        <li style="color: white !important">13.00 - 17.00 uur</li>
                        <li style="color: #eda51f !important">ETZ Elisabeth</li>
@@ -84,13 +92,13 @@
                        <li style="color: #eda51f !important">Hilvarenbeekseweg 60</li>
                        <li style="color: #eda51f !important">5022 GC Tilburg</li>
                    </ul> -->
-                  
-              </div>  
-           </div>
-       </div>
 
-       <!-- Slide Item -->
-       <!-- <div class="slide-item" style="background-image: url(assets/images/main-slider/2.jpg);">
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide Item -->
+    <!-- <div class="slide-item" style="background-image: url(assets/images/main-slider/2.jpg);">
            <div class="auto-container">
                <div class="content-box">
                    <span class="title">January 20, 2020</span>
@@ -104,51 +112,54 @@
                </div>  
            </div>
        </div> -->
-   </div>
+  </div>
 </section>
 <!--End Banner Section -->
 
 <!-- Coming Soon -->
 <section class="coming-soon-section">
-   <div class="auto-container">
-       <div class="outer-box">
-           <div class="time-counter"><div style="color:white">Nog </div><div class="time-countdown clearfix" data-countdown="3/20/2020"></div></div>
-       </div>
-   </div>
+  <div class="auto-container">
+    <div class="outer-box">
+      <div class="time-counter">
+        <div style="color:white">Nog </div>
+        <div class="time-countdown clearfix" data-countdown="3/20/2020"></div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- End Coming Soon -->
 
 <!-- About Section -->
 <section class="about-section">
-   <div class="anim-icons full-width">
-       <span class="icon icon-circle-blue wow fadeIn"></span>
-       <span class="icon icon-dots wow fadeInleft"></span>
-       <span class="icon icon-circle-1 wow zoomIn"></span>
-   </div>
-   <div class="auto-container">
-       <div class="row">
-           <!-- Content Column -->
-           <div class="content-column col-lg-6 col-md-12 col-sm-12">
-               <div class="inner-column">
-                   <div class="sec-title"><br><br><br>
-                       <span class="title">Over dit symposium</span>
-                       <h2>Wat zal de toekomst brengen?</h2>
-                       <div class="text">Artificiële intelligentie in de zorg is een nieuwe ontwikkeling die een sterk groeiende vraag kent vanuit diverse gebruikersgroepen, ook binnen een topklinisch ziekenhuis.<br><br>
+  <div class="anim-icons full-width">
+    <span class="icon icon-circle-blue wow fadeIn"></span>
+    <span class="icon icon-dots wow fadeInleft"></span>
+    <span class="icon icon-circle-1 wow zoomIn"></span>
+  </div>
+  <div class="auto-container">
+    <div class="row">
+      <!-- Content Column -->
+      <div class="content-column col-lg-6 col-md-12 col-sm-12">
+        <div class="inner-column">
+          <div class="sec-title"><br><br><br>
+            <span class="title">Over dit symposium</span>
+            <h2>Wat zal de toekomst brengen?</h2>
+            <div class="text">Artificiële intelligentie in de zorg is een nieuwe ontwikkeling die een sterk groeiende vraag kent vanuit diverse gebruikersgroepen, ook binnen een topklinisch ziekenhuis.<br><br>
 
-                        De bedoeling van dit symposium is het vergroten van de kennis en bewustwording rond de mogelijkheden van AI in een topklinisch ziekenhuis, zowel op het vlak van patiëntenzorg als wetenschappelijk onderzoek en opleiding. Diverse vooraanstaande sprekers komen hun visie hierover toelichten, elk vanuit hun eigen domein en expertise.</div>
-                   </div>
-                   <ul class="list-style-one">
-                       <li>Opmars van Artificiële Intelligentie in de Topzorg </li>
-                       <li>Waarom, wanneer en hoe kunnen we met AI starten? </li>
-                       <li>Opinie van de experts</li>
-                   </ul>
-                   <a routerLink="/programma">Benieuwd naar het programma? Klik hier!</a><br><br>
-                   
-                   <div class="btn-box">
-                   
-                    <div class="btn-box"><a routerLink="/inschrijven" class="theme-btn btn-style-two"><span class="btn-title">Schrijf je in!</span></a></div>
+              De bedoeling van dit symposium is het vergroten van de kennis en bewustwording rond de mogelijkheden van AI in een topklinisch ziekenhuis, zowel op het vlak van patiëntenzorg als wetenschappelijk onderzoek en opleiding. Diverse vooraanstaande sprekers komen hun visie hierover toelichten, elk vanuit hun eigen domein en expertise.</div>
+          </div>
+          <ul class="list-style-one">
+            <li>Opmars van Artificiële Intelligentie in de Topzorg </li>
+            <li>Waarom, wanneer en hoe kunnen we met AI starten? </li>
+            <li>Opinie van de experts</li>
+          </ul>
+          <a routerLink="/programma">Benieuwd naar het programma? Klik hier!</a><br><br>
 
-                       <!-- <div title="Zet in je agenda!" class="addeventatc">
+          <div class="btn-box">
+
+            <div class="btn-box"><a routerLink="/inschrijven" class="theme-btn btn-style-two"><span class="btn-title">Schrijf je in!</span></a></div>
+
+            <!-- <div title="Zet in je agenda!" class="addeventatc">
                     Klik om in je agenda te zetten!
                     <span class="start">03/20/2020 13:00</span>
                     <span class="end">03/20/2020 17:00</span>
@@ -157,118 +168,135 @@
                     <span class="description">Waarom, wanneer en hoe kunnen we met AI starten? </span>
                     <span class="location">ETZ Elisabeth - Aula, vergadercentrum route 73</span>
                 </div> -->
-            </div>
-               </div>
-           </div>
+          </div>
+        </div>
+      </div>
 
-           <!-- Image Column -->
-           <div class="image-column col-lg-5 col-md-12 col-sm-12">
-            <div class="text-center">
-                <br>            <span class="icon fa fa-map-marker-alt" style="color: #ec167f"></span>
+      <!-- Image Column -->
+      <div class="image-column col-lg-5 col-md-12 col-sm-12">
+        <div class="text-center">
+          <br> <span class="icon fa fa-map-marker-alt" style="color: #ec167f"></span>
 
-                <h3>Locatie en tijd</h3>
-            
-            <ul class="info-list" >
+          <h3>Locatie en tijd</h3>
+
+          <ul class="info-list">
             <li style="color: black !important">20 maart 2020</li>
-             <li style="color: black !important">13.00 - 17.00 uur</li>
-             <li style="color: #eda51f !important">ETZ Elisabeth</li>
-             <li style="color: #eda51f !important">Aula, vergadercentrum route 73</li>
-             <li style="color: #eda51f !important">Hilvarenbeekseweg 60</li>
-             <li style="color: #eda51f !important">5022 GC Tilburg</li>
-         </ul>
+            <li style="color: black !important">13.00 - 17.00 uur</li>
+            <li style="color: #eda51f !important">ETZ Elisabeth</li>
+            <li style="color: #eda51f !important">Aula, vergadercentrum route 73</li>
+            <li style="color: #eda51f !important">Hilvarenbeekseweg 60</li>
+            <li style="color: #eda51f !important">5022 GC Tilburg</li>
+          </ul>
         </div><br><br>
-               <div class="image-box" style="padding-left:20px">
-                   <figure class="image wow fadeIn"><img src="assets/images/resource/about-img-1.jpg" alt=""></figure>
-               </div>
-           </div>
-       </div>
-   </div>
+        <div class="image-box" style="padding-left:20px">
+          <figure class="image wow fadeIn"><img src="assets/images/resource/about-img-1.jpg" alt=""></figure>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!--End About Section -->
 
 <!-- Features Section Two -->
 <section class="features-section-two">
-   <div class="auto-container">
-       <div class="anim-icons">   
-           <span class="icon twist-line-1 wow zoomIn"></span>
-           <span class="icon twist-line-2 wow zoomIn" data-wow-delay="1s"></span>
-           <span class="icon twist-line-3 wow zoomIn" data-wow-delay="2s"></span>
-       </div>
-       <br>
-       <div class="row">
-           <!-- Title Block -->
-           <div class="title-block col-lg-4 col-md-12 col-sm-12 wow fadeInUp">
-               <div class="inner-box" >
-                   <div class="sec-title">
-                       <span class="title">Experts</span>
-                       <h2>Sprekers</h2>
-                   </div>
-               </div>
-           </div>
+  <div class="auto-container">
+    <div class="anim-icons">
+      <span class="icon twist-line-1 wow zoomIn"></span>
+      <span class="icon twist-line-2 wow zoomIn" data-wow-delay="1s"></span>
+      <span class="icon twist-line-3 wow zoomIn" data-wow-delay="2s"></span>
+    </div>
+    <br>
+    <div class="row">
+      <!-- Title Block -->
+      <div class="title-block col-lg-4 col-md-12 col-sm-12 wow fadeInUp">
+        <div class="inner-box">
+          <div class="sec-title">
+            <span class="title">Experts</span>
+            <h2>Sprekers</h2>
+          </div>
         </div>
-         <div class="row">
-            <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
-                <div class="inner-box" (click)='openModal(speakermodal,7)'>
-                    <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/7.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
-                    <h4><a>G.H.A.M. (Gerard) van Berlo MAC</a></h4><p style="font-size: 12px;">Lid van Raad van Bestuur ETZ</p>
-                    <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
-                </div>
-            </div>
-           <!-- Feature Block -->
-           <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
-            <div class="inner-box" (click)='openModal(speakermodal,1)'>
-                <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/1.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
-                <h4><a>Mr. Drs. Irith Kist</a></h4><p style="font-size: 12px;">functionaris gegevensbescherming, NKI-AVL Amsterdam</p>
-                <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
-            </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
+        <div class="inner-box" (click)='openModal(speakermodal,7)'>
+          <div class="icon-box"><img class="rounded-circle" style="background-image: url(../assets/7.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+          <h4><a>G.H.A.M. (Gerard) van Berlo MAC</a></h4>
+          <p style="font-size: 12px;">Lid van Raad van Bestuur ETZ</p>
+          <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
         </div>
+      </div>
 
-           <!-- Feature Block -->
-           <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
-               <div class="inner-box" (click)='openModal(speakermodal,2)'>
-                   <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/2.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
-                   <h4><a>Dr. Marleen de Bruijne</a></h4><p style="font-size: 12px;">Erasmus MC</p>
-                   <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
-               </div>
-           </div>
+      <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
+        <div class="inner-box" (click)='openModal(speakermodal,8)'>
+          <div class="icon-box"><img class="rounded-circle" style="background-image: url(../assets/8.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+          <h4><a>Dr. Paul Algra</a></h4>
+          <p style="font-size: 12px;">Neuroradioloog, board member Eusomii, NoordWest Ziekenhuisgroep</p>
+          <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
+        </div>
+      </div>
 
-           <!-- Feature Block -->
-           <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
-               <div class="inner-box" (click)='openModal(speakermodal,5)'>
-                   <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/5.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
-                   <h4><a>dr. Erik Ranschaert</a></h4><p style="font-size: 12px;">radioloog, ETZ Tilburg</p><br>
-                   <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker</div>
-               </div>
-           </div>
+      <!-- Feature Block -->
+      <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
+        <div class="inner-box" (click)='openModal(speakermodal,1)'>
+          <div class="icon-box"><img class="rounded-circle" style="background-image: url(../assets/1.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+          <h4><a>Mr. Drs. Irith Kist</a></h4>
+          <p style="font-size: 12px;">functionaris gegevensbescherming, NKI-AVL Amsterdam</p>
+          <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
+        </div>
+      </div>
 
-           <!-- Feature Block -->
-           <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms" style="cursor: pointer;">
-               <div class="inner-box" (click)='openModal(speakermodal,4)'>
-                   <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/4.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
-                   <h4><a>Dr. Sharon Ong</a></h4><p style="font-size: 12px;">assistent-professor Cognitieve Wetenschappen en Kunstmatige Intelligentie TiU</p>
-                   <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker</div>
-               </div>
-           </div>
+      <!-- Feature Block -->
+      <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
+        <div class="inner-box" (click)='openModal(speakermodal,2)'>
+          <div class="icon-box"><img class="rounded-circle" style="background-image: url(../assets/2.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+          <h4><a>Dr. Marleen de Bruijne</a></h4>
+          <p style="font-size: 12px;">Erasmus MC</p>
+          <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker </div>
+        </div>
+      </div>
 
-           <!-- Feature Block -->
-           <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms" style="cursor: pointer;">
-               <div class="inner-box" (click)='openModal(speakermodal,3)'>
-                   <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/3.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
-                   <h4><a>Prof. Dr. Paul van Diest</a></h4><p style="font-size: 12px;">patholoog, hoofd afdeling pathologie UMC Utrecht</p>
-                   <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker</div>
-               </div>
-           </div>
+      <!-- Feature Block -->
+      <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" style="cursor: pointer;">
+        <div class="inner-box" (click)='openModal(speakermodal,5)'>
+          <div class="icon-box"><img class="rounded-circle" style="background-image: url(../assets/5.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+          <h4><a>dr. Erik Ranschaert</a></h4>
+          <p style="font-size: 12px;">radioloog, ETZ Tilburg</p><br>
+          <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker</div>
+        </div>
+      </div>
 
-           <!-- Feature Block -->
-           <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms" style="cursor: pointer;">
-               <div class="inner-box" (click)='openModal(speakermodal,6)'>
-                   <div class="icon-box"><img class="rounded-circle"  style="background-image: url(../assets/6.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
-                   <h4><a>Prof. dr. M.J. Daemen</a></h4><p style="font-size: 12px;">Hoogleraar Pathologie, vice decaan onderzoek Amsterdam UMC</p>
-                   <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker</div>
-               </div>
-           </div>
-       </div>
-   </div>
+      <!-- Feature Block -->
+      <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="400ms" style="cursor: pointer;">
+        <div class="inner-box" (click)='openModal(speakermodal,4)'>
+          <div class="icon-box"><img class="rounded-circle" style="background-image: url(../assets/4.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+          <h4><a>Dr. Sharon Ong</a></h4>
+          <p style="font-size: 12px;">assistent-professor Cognitieve Wetenschappen en Kunstmatige Intelligentie TiU</p>
+          <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker</div>
+        </div>
+      </div>
+
+      <!-- Feature Block -->
+      <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="800ms" style="cursor: pointer;">
+        <div class="inner-box" (click)='openModal(speakermodal,3)'>
+          <div class="icon-box"><img class="rounded-circle" style="background-image: url(../assets/3.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+          <h4><a>Prof. Dr. Paul van Diest</a></h4>
+          <p style="font-size: 12px;">patholoog, hoofd afdeling pathologie UMC Utrecht</p>
+          <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker</div>
+        </div>
+      </div>
+
+      <!-- Feature Block -->
+      <div class="feature-block-two col-lg-4 col-md-6 col-sm-12 wow fadeInUp" data-wow-delay="1200ms" style="cursor: pointer;">
+        <div class="inner-box" (click)='openModal(speakermodal,6)'>
+          <div class="icon-box"><img class="rounded-circle" style="background-image: url(../assets/6.png);height:50px;width:50px;background-size: cover;background-position: center center;"></div>
+          <h4><a>Prof. dr. M.J. Daemen</a></h4>
+          <p style="font-size: 12px;">Hoogleraar Pathologie, vice decaan onderzoek Amsterdam UMC</p>
+          <div class="text" style="color: #ec167f;cursor: pointer;">Lees meer over deze spreker</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!--End Features Section -->
 

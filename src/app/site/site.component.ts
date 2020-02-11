@@ -131,13 +131,18 @@ export class SiteComponent implements OnInit {
       case 6:
         this.speaker = 6;
         break;
-        case 7:
+      case 7:
         this.speaker = 7;
+        break;
+      case 8:
+        this.speaker = 8;
         break;
     }
     this.modalRef = this.modalService.show(
       template,
-      Object.assign({}, { class: 'modal-lg' })
+      Object.assign({}, {
+        class: 'modal-lg'
+      })
     );
   }
 
