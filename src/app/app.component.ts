@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild  } from '@angular/core';
+
+
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +11,31 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'eventai';
 
+  // modalRef
+  @ViewChild('autoShownModal', { static: false }) autoShownModal: ModalDirective;
+  isModalShown = false;
+
 
   constructor() {
     $(document).ready(() => {
 
       setTimeout(this.myFunction, 1000);
-
+      
 
     });
+    this.showModal();
+  }
+
+  showModal(): void {
+    this.isModalShown = true;
+  }
+ 
+  hideModal(): void {
+    this.autoShownModal.hide();
+  }
+ 
+  onHidden(): void {
+    this.isModalShown = false;
   }
 
 
@@ -51,6 +71,10 @@ export class AppComponent {
       });
     }
   }
+
+
+
+
 
   
 
