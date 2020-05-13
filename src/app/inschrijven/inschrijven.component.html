@@ -46,11 +46,12 @@
                        <br><br><br>
                        
                         <h2>Inschrijfformulier</h2>
-                        <div class="alert alert-warning" role="alert">
+                        <!-- <div class="alert alert-warning" role="alert">
                             Het symposium “Opmars van AI in de Topzorg” op 20 maart a.s. wordt <b>verplaatst naar een latere datum.</b><br><br> Omdat het in het ETZ extra druk is door het coronavirus, willen we onze tijd en aandacht besteden aan directe patiëntenzorg. Daarnaast vermijden we dat veel mensen samen komen in één compacte ruimte en beperken we de risico's op verspreiding van het coronavirus zo veel mogelijk.<br><br> Een nieuwe datum wordt gecommuniceerd zodra die bekend is. De personen die zich hebben aangemeld, krijgen persoonlijk bericht.
-                                                  </div><br><br><br>
+                                                  </div> -->
+                                                  <br><br><br>
 
-                       <!-- <form>
+                       <form>
                            
                            <div *ngIf="!formIsSend" class="form-group">
                                <span class="icon fa fa-user"></span>
@@ -76,6 +77,10 @@
                            <div *ngIf="!formIsSend" style="padding-left:50px" class="custom-control form-control-lg custom-checkbox">
                             <input [(ngModel)]="inputAcc" [ngModelOptions]="{standalone: true}"  type="checkbox" class="custom-control-input" id="customCheck1">
                             <label class="custom-control-label" for="customCheck1">Verzoek tot accreditatiepunten</label><br>De <a href="https://www.knmg.nl/opleiding-herregistratie-carriere/aban/over-aban.htm" target="blanc">ABAN</a> (KNMG) accreditatie is momenteel aangevraagd.
+                        </div><br>
+                        <div *ngIf="!formIsSend && inputAcc == 1" class="form-group">
+                            <span class="icon fa fa-briefcase"></span>
+                            <input [(ngModel)]="inputBig" [ngModelOptions]="{standalone: true}" type="text" name="functie" placeholder="BIG nummer" required="">
                         </div><br><br>
                            <div style='padding:20px'>
                             <div *ngIf="formIsSend" class="alert alert-primary" role="alert">
@@ -97,7 +102,7 @@
                            <div *ngIf="!formIsSend" class="form-group text-right">
                                <button (click)="sendFormNow()" type="submit" class="theme-btn btn-style-four"><span class="btn-title">Verstuur</span></button>
                            </div>
-                       </form> -->
+                       </form>
                    </div>
                    
                </div>

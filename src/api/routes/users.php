@@ -55,12 +55,17 @@ $app->post('/submitform', function (Request $request, Response $response) {
     $functie = $parsedBody[functie];
     $email = $parsedBody[email];
     $acc = $parsedBody[accreditatie];
+    $big = $parsedBody[big];
+
+    if ($big == ""){
+        $big = '-';
+    }
 
     include 'db.php';
     $dbh = new PDO("mysql:host=$hostname;dbname=$db_name", $username, $password);
 
     // registering
-    $sqlregister = "INSERT INTO users (naam, organisatie, functie, email, acc) VALUES ('$naam','$org', '$functie', '$email', '$acc')";
+    $sqlregister = "INSERT INTO users (naam, organisatie, functie, email, acc, big) VALUES ('$naam','$org', '$functie', '$email', '$acc', '$big')";
     $stmtregister = $dbh->prepare($sqlregister);
     $stmtregister->execute();
     $resultregister = $stmtregister->fetchAll(PDO::FETCH_ASSOC);

@@ -19,7 +19,7 @@ export class InschrijvenComponent implements OnInit {
   // vars
   loading = false;
 
-  cansendForm = false;
+  cansendForm = true;
   formClosed = false;
 
   inputName = '';
@@ -27,6 +27,7 @@ export class InschrijvenComponent implements OnInit {
   inputFunction = '';
   inputEmail = '';
   inputAcc = 1;
+  inputBig = '';
   formIsSend = false;
 
   errorOnSend = false;
@@ -46,7 +47,7 @@ export class InschrijvenComponent implements OnInit {
     const tonumb = +_resp.status;
     this.serCred.debugLog(_resp);
     console.log(tonumb);
-    if (tonumb >= 200){
+    if (tonumb >= 500){
       this.cansendForm = false;
       this.formClosed = true;
     } else {
@@ -58,7 +59,11 @@ export class InschrijvenComponent implements OnInit {
 
   sendFormNow() {
     if (this.inputName !== '' && this.inputName !== null && this.inputOrg !== '' && this.inputOrg !== null && this.inputFunction !== '' && this.inputFunction !== null && this.inputEmail !== '' && this.inputEmail !== null){
-      this.serCred.API_submitform(this.inputName, this.inputOrg, this.inputFunction, this.inputEmail, this.inputAcc).subscribe(value => this.formResponse(value));
+      if (this.inputAcc !== 1){
+        this.inputBig = '-';
+      }
+      
+      this.serCred.API_submitform(this.inputName, this.inputOrg, this.inputFunction, this.inputEmail, this.inputAcc, this.inputBig).subscribe(value => this.formResponse(value));
     } else {
       // not everything filled in communicatie
       this.errorOnSend = true;

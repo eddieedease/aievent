@@ -99,7 +99,7 @@ export class SerCredService {
 
 
 
-  API_submitform(_name, _org, _function, _email, _acc ): Observable < any > {
+  API_submitform(_name, _org, _function, _email, _acc, _big): Observable < any > {
     // tslint:disable-next-line:max-line-length
     const url = environment.apilink + 'submitform?rnd=' + new Date().getTime();
 
@@ -109,7 +109,8 @@ export class SerCredService {
       'organisatie': _org,
       'functie': _function,
       'email': _email,
-      'accreditatie': _acc
+      'accreditatie': _acc,
+      'big' : _big
     };
     // const body = JSON.stringify(upt);
 
