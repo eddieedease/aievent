@@ -23,7 +23,7 @@ export class AppComponent {
       
 
     });
-    this.showModal();
+    // this.showModal();
   }
 
   showModal(): void {
