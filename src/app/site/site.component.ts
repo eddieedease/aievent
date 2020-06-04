@@ -28,9 +28,29 @@ export class SiteComponent implements OnInit {
   // modalRef
   modalRef: BsModalRef;
 
+  IEuw = false;
+
   speaker = 0;
 
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService) {
+    const iecheck = this.msieversion();
+  }
+
+  msieversion() {
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf("MSIE ");
+
+    if (msie > 0 || !!navigator.userAgent.match(/Trident.*rv\:11\./))  // If Internet Explorer, return version number
+    {
+        this.IEuw = true;
+        return 'IE';
+    }
+    else  // If another browser, return 0
+    {
+        this.IEuw = false;
+        return 'otherbrowser';
+    }
+  }
 
   ngOnInit() {
     window.scrollTo(0, 0);

@@ -3,11 +3,20 @@ import { Component, ViewChild  } from '@angular/core';
 
 import { ModalDirective } from 'ngx-bootstrap/modal';
 
+declare global {
+  interface Document {
+      documentMode?: any;
+  }
+}
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+
 export class AppComponent {
   title = 'eventai';
 
@@ -15,8 +24,13 @@ export class AppComponent {
   @ViewChild('autoShownModal', { static: false }) autoShownModal: ModalDirective;
   isModalShown = false;
 
+  
+
 
   constructor() {
+    
+    
+
     $(document).ready(() => {
 
       setTimeout(this.myFunction, 1000);
@@ -25,6 +39,13 @@ export class AppComponent {
     });
     // this.showModal();
   }
+
+  
+
+
+  
+
+
 
   showModal(): void {
     this.isModalShown = true;
