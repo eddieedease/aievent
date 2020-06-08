@@ -20,8 +20,8 @@
                        <div class="sec-title light">
                            <div class="icon-box"><span class="icon flaticon-rocket-ship"></span></div>
                            <h2>Inschrijven</h2>
-                           <div class="text">Schrijf jezelf hier in!</div><br><br>
-                           <span class="icon fa fa-map-marker-alt" style="color: #ec167f"></span>
+                           <!-- <div class="text">Schrijf jezelf hier in!</div><br><br> -->
+                           <!-- <span class="icon fa fa-map-marker-alt" style="color: #ec167f"></span> -->
                            <ul class="info-list" >
                             <li style="color: white !important">10 juni 2020</li>
                             <li style="color: white !important">14.00 - 17.00 uur</li>
@@ -34,9 +34,7 @@
                   
                 <div *ngIf="!cansendForm" class="form-inner">
                     <h2>Inschrijfformulier gesloten</h2>
-                    <p>Helaas, onze maxium capaciteit is bereikt</p>
-
-
+                    <p>Het inschrijfformulier is gesloten. Iedereen die zichzelf in heeft geschreven krijgt via het opgegeven mailadres verdere informatie.</p>
                 </div>
                    <div [hidden]="!cansendForm" class="form-inner">
                        <br><br><br>
