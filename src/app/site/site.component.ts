@@ -65,7 +65,7 @@ export class SiteComponent implements OnInit {
           nav: true,
           drag: false,
           smartSpeed: 500,
-          autoHeight: true,
+          autoHeight: false,
           autoplay: true,
           autoplayTimeout: 5000,
           navText: ['<span class="fa fa-angle-left">', '<span class="fa fa-angle-right">'],
