@@ -43,7 +43,7 @@ const appRoutes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'programma', component: ProgrammaComponent },
   { path: 'inschrijven', component: InschrijvenComponent },
-  { path: 'download', component: DownloadpageComponent },
+  { path: 'webinar', component: DownloadpageComponent },
   { path: 'admin', component: AdminComponent },
   { path: '',
     redirectTo: 'site',
